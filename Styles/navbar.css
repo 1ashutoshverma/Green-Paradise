@@ -1,0 +1,108 @@
+#navbar_container {
+  /* border: 1px solid red; */
+  font-size: 16px;
+}
+
+/* navbar for laptop */
+#main_navbar {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5em;
+}
+
+/* Logo */
+#main_navbar > div:nth-child(1) {
+  width: max-content;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+#main_navbar > div:nth-child(1) a {
+  color: #486e00;
+  text-decoration: none;
+}
+
+/* middle menu */
+#main_navbar > div:nth-child(2) {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  align-items: center;
+}
+#main_navbar > div:nth-child(2) a {
+  text-decoration: none;
+  font-size: 1.1em;
+  color: rgb(104, 103, 103);
+}
+
+/* last menu */
+#main_navbar > div:nth-child(3) {
+  display: flex;
+  width: 20%;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(104, 103, 103);
+}
+
+#main_navbar > div img {
+  width: 50%;
+}
+
+/* for all icons */
+.navbar_icon {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+}
+.navbar_icon > sup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5px;
+  margin-left: -10px;
+  background-color: #486e00;
+  color: white;
+  font-size: 0.6em;
+  width: 1.9em;
+  height: 1.9em;
+  border-radius: 50% 50%;
+}
+
+/* language section */
+#lang {
+  text-wrap: nowrap;
+  font-size: 1.1em;
+  text-decoration: underline;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#lang > span:nth-child(2) {
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
+  width: 35%;
+}
+#lang > span > img {
+  width: 100%;
+}
+
+/* login section (human icon) */
+#human_icon > span {
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
+  width: 50%;
+}
+#human_icon > span img {
+  width: 100%;
+}
+
+@media screen and (width<=1000px) {
+  #navbar_container {
+    font-size: 13px;
+  }
+}
