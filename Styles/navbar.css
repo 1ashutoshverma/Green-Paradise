@@ -1,108 +1,134 @@
-#navbar_container {
-  /* border: 1px solid red; */
-  font-size: 16px;
-}
-
-/* navbar for laptop */
-#main_navbar {
+#navbar_bigscreen {
+  display: flex;
   max-width: 1200px;
   margin: auto;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 0.5em;
+  padding-top: 10px;
 }
 
-/* Logo */
-#main_navbar > div:nth-child(1) {
-  width: max-content;
-  font-size: 1.5em;
-  font-weight: 600;
+/* Logo of the navbar */
+#first_bigscreen {
+  /* border: 1px solid red; */
+  width: 16;
 }
-#main_navbar > div:nth-child(1) a {
+#first_bigscreen a {
+  text-decoration: none;
   color: #486e00;
-  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
-/* middle menu */
-#main_navbar > div:nth-child(2) {
+/* middle part of the navbar */
+#middle_bigscreen {
+  /* border: 1px solid red; */
+  width: 35%;
   display: flex;
-  width: 40%;
+  justify-content: space-between;
+}
+
+#middle_bigscreen a {
+  text-decoration: none;
+  color: #767774;
+  /* font-size: 1rem; */
+}
+
+/* last part of the navbar */
+#last_bigscreen {
+  /* border: 1px solid black; */
+  width: 28%;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#main_navbar > div:nth-child(2) a {
-  text-decoration: none;
-  font-size: 1.1em;
-  color: rgb(104, 103, 103);
+
+#search_bigscreen {
+  border: 1px solid rgb(53, 43, 43);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 4px 10px;
+  padding-top: 5px;
+  width: 60%;
+}
+#search_bigscreen input {
+  outline: none;
+  border: none;
+  padding-bottom: 5px;
+  width: 90%;
 }
 
-/* last menu */
-#main_navbar > div:nth-child(3) {
+#login1_bigscreen {
+  display: none;
+}
+#login1_bigscreen:hover {
+  cursor: pointer;
+  color: #679c05;
+}
+
+#login2_bigscreen {
+  /* border: 1px solid red; */
   display: flex;
-  width: 20%;
   justify-content: space-between;
   align-items: center;
-  color: rgb(104, 103, 103);
+  /* display: none; */
+}
+#login2_bigscreen div:nth-child(2) img {
+  /* border: 1px solid red; */
+  width: 1.1rem;
 }
 
-#main_navbar > div img {
-  width: 50%;
+/* drop downs */
+#dropdowns_bigscreen {
+  max-width: 1200px;
+  /* border: 1px solid red; */
+  margin: auto;
 }
-
-/* for all icons */
-.navbar_icon {
-  display: flex;
-  justify-content: center;
-  width: 20%;
+#search_bigscreen_dropdown {
+  display: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-left: 72%;
+  /* width: 216.5px; */
+  width: 18%;
+  padding-left: 5px;
 }
-.navbar_icon > sup {
+#search_bigscreen_dropdown div {
+  padding: 8px;
+  cursor: pointer;
+}
+#login2_bigscreen_dropdown {
+  margin-left: 86.5%;
+  /* border: 1px solid red; */
+  width: 150px;
+  text-align: center;
+  display: none;
+}
+#login2_bigscreen_dropdown div {
+  margin: 4px 0;
+}
+#cart_bigscreen {
+  /* border: 1px solid red; */
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-top: -5px;
-  margin-left: -10px;
+}
+#cart_bigscreen div:nth-child(2) {
+  /* border: 1px solid red; */
   background-color: #486e00;
   color: white;
-  font-size: 0.6em;
-  width: 1.9em;
-  height: 1.9em;
-  border-radius: 50% 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+  border-radius: 50%;
+  margin-top: -12px;
+  margin-left: -12px;
 }
 
-/* language section */
-#lang {
-  text-wrap: nowrap;
-  font-size: 1.1em;
-  text-decoration: underline;
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#lang > span:nth-child(2) {
-  display: flex;
-  align-items: center;
-  padding-left: 5%;
-  width: 35%;
-}
-#lang > span > img {
-  width: 100%;
-}
-
-/* login section (human icon) */
-#human_icon > span {
-  display: flex;
-  align-items: center;
-  padding-left: 5%;
-  width: 50%;
-}
-#human_icon > span img {
-  width: 100%;
-}
-
-@media screen and (width<=1000px) {
-  #navbar_container {
-    font-size: 13px;
-  }
+/* for all 4 icons i used */
+.icon_bigscreen img {
+  width: 1.4rem;
 }

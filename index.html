@@ -12,44 +12,56 @@
     <title>Document</title>
   </head>
   <body>
-    <nav id="navbar_container">
-      <div id="main_navbar">
-        <div><a href="./index.html">Green paradise</a></div>
-
-        <div>
+    <!-- Navbar for laptop -->
+    <nav id="navbar_bigscreen_container">
+      <div id="navbar_bigscreen">
+        <div id="first_bigscreen">
+          <a href="index.html">Green paradise</a>
+        </div>
+        <div id="middle_bigscreen">
           <a href="#">Catalog</a>
           <a href="#">Sale</a>
-          <a href="#">Delivery and payments</a>
+          <a href="#">Delivery and payment</a>
           <a href="#">Contact</a>
         </div>
-
-        <div>
-          <div id="search_icon" class="navbar_icon">
-            <img
-              src="./Images/navbar_images/search-icon.svg"
-              alt="search icon"
-            />
+        <div id="last_bigscreen">
+          <div id="search_bigscreen">
+            <div><input type="text" placeholder="Search Here" /></div>
+            <div class="icon_bigscreen">
+              <img src="./Images/navbar_images/search-icon.svg" alt="" />
+            </div>
           </div>
-          <div id="lang">
-            <span> Eng </span>
-            <span>
+
+          <div id="login1_bigscreen" class="login_form">Login</div>
+          <div id="login2_bigscreen">
+            <div class="icon_bigscreen">
+              <img src="./Images/navbar_images/human-icon.svg" alt="" />
+            </div>
+            <div class="icon_bigscreen">
               <img src="./Images/navbar_images/arrow-icon.svg" alt="" />
-            </span>
+            </div>
           </div>
-
-          <div id="human_icon" class="navbar_icon">
-            <img src="./Images/navbar_images/human-icon.svg" alt="" />
-            <span>
-              <img src="./Images/navbar_images/arrow-icon.svg" alt="" />
-            </span>
-          </div>
-
-          <div id="cart_icon" class="navbar_icon">
-            <img src="./Images/navbar_images/bucket-icon.svg" alt="cart" />
-            <sup><span>0</span></sup>
+          <div id="cart_bigscreen">
+            <div class="icon_bigscreen">
+              <img src="./Images/navbar_images/bucket-icon.svg" alt="" />
+            </div>
+            <div>0</div>
           </div>
         </div>
       </div>
+      <div id="dropdowns_bigscreen">
+        <div id="search_bigscreen_dropdown">
+          <div>hello</div>
+        </div>
+        <div id="login2_bigscreen_dropdown">
+          <div>Name</div>
+          <div>Cart</div>
+          <div>Logout</div>
+        </div>
+      </div>
     </nav>
+
+    <!-- navbar for mobile -->
+    <nav id="navbar_smallscreen_container"></nav>
   </body>
 </html>
