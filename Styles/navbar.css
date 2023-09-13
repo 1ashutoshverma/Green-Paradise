@@ -1,3 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+#navbar_bigscreen_container {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+}
+
 #navbar_bigscreen {
   display: flex;
   max-width: 1200px;
@@ -5,13 +15,16 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 /* Logo of the navbar */
-#first_bigscreen {
-  /* border: 1px solid red; */
-  width: 16;
-}
+/* #first_bigscreen {
+ border: 1px solid red;
+} */
+
 #first_bigscreen a {
   text-decoration: none;
   color: #486e00;
@@ -21,8 +34,7 @@
 
 /* middle part of the navbar */
 #middle_bigscreen {
-  /* border: 1px solid red; */
-  width: 35%;
+  width: 39%;
   display: flex;
   justify-content: space-between;
 }
@@ -30,12 +42,18 @@
 #middle_bigscreen a {
   text-decoration: none;
   color: #767774;
-  /* font-size: 1rem; */
 }
 
 /* last part of the navbar */
+
+.icon_bigscreen img {
+  width: 1.4rem;
+}
+
+.icon_bigscreen img:hover {
+  cursor: pointer;
+}
 #last_bigscreen {
-  /* border: 1px solid black; */
   width: 28%;
   display: flex;
   justify-content: space-between;
@@ -68,56 +86,65 @@
 }
 
 #login2_bigscreen {
-  /* border: 1px solid red; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   /* display: none; */
 }
+
 #login2_bigscreen div:nth-child(2) img {
-  /* border: 1px solid red; */
   width: 1.1rem;
 }
 
 /* drop downs */
 #dropdowns_bigscreen {
+  position: fixed;
+  width: 100%;
+  padding: 0px;
+}
+#dropdowns_bigscreen > div {
   max-width: 1200px;
-  /* border: 1px solid red; */
   margin: auto;
 }
+
 #search_bigscreen_dropdown {
   display: none;
   background-color: #fff;
-  border: 1px solid #ccc;
   max-height: 200px;
-  overflow-y: auto;
   margin-left: 72%;
-  /* width: 216.5px; */
-  width: 18%;
-  padding-left: 5px;
+  width: 18.7%;
 }
 #search_bigscreen_dropdown div {
   padding: 8px;
+}
+#search_bigscreen_dropdown div:hover {
+  background-color: #f3f0f0;
   cursor: pointer;
 }
+
 #login2_bigscreen_dropdown {
-  margin-left: 86.5%;
-  /* border: 1px solid red; */
-  width: 150px;
+  margin-left: 87.5%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 11%;
   text-align: center;
+  padding: 4px;
+  font-size: 0.9rem;
   display: none;
 }
-#login2_bigscreen_dropdown div {
-  margin: 4px 0;
+
+.dropdowns_user_bigscreen:hover {
+  background-color: #f3f0f0;
+  cursor: pointer;
 }
+
 #cart_bigscreen {
-  /* border: 1px solid red; */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 #cart_bigscreen div:nth-child(2) {
-  /* border: 1px solid red; */
   background-color: #486e00;
   color: white;
   width: 1.2rem;
@@ -128,7 +155,40 @@
   margin-left: -12px;
 }
 
-/* for all 4 icons i used */
-.icon_bigscreen img {
-  width: 1.4rem;
+/* Testing perpose only */
+#other {
+  padding-top: 57px;
+}
+.abc {
+  height: 200px;
+  background-color: #486e00;
+  border: 1px solid red;
+}
+
+@media screen and (width<900px) {
+  #first_bigscreen a {
+    font-size: 1.4rem;
+  }
+  #middle_bigscreen {
+    width: 45%;
+  }
+  #middle_bigscreen a {
+    font-size: 0.9rem;
+  }
+  #search_bigscreen {
+    width: 50%;
+  }
+  #login2_bigscreen div:nth-child(2) img {
+    width: 1rem;
+  }
+  .icon_bigscreen img {
+    width: 1.2rem;
+  }
+  #search_bigscreen_dropdown {
+    font-size: 0.9rem;
+    width: 16.5%;
+  }
+  #login1_bigscreen {
+    font-size: 0.9rem;
+  }
 }
