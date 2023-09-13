@@ -28,11 +28,11 @@ const footerHtml = `<footer class="footer">
                 <a href="#" class="foot_links">Delivery And Payment</a>
             </div>
             <div class="footer_col">
-                <h4 href="#" class="footer_heading">Our partners</h4>
-                <a href="#" class="foot_links">Privacy policy</a>
-                <a href="#" class="foot_links">Work process</a>
+                <h4 href="#" class="footer_heading">About Us</h4>
+                <a href="#" class="foot_links">Our Story</a>
+                <a href="#" class="foot_links">Our Partners</a>
+                <a href="#" class="foot_links">Work Process</a>
                 <a href="#" class="foot_links">Contacts</a>
-                <a href="#" class="foot_links">Soll and fertilizer</a>
             </div>
             <div class="footer_col">
                 <button id="scroll_2_top" onclick="window.scrollTo(0,0)">
