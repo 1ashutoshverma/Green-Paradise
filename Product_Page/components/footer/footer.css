@@ -13,8 +13,9 @@
 }
 
 footer{
-    padding: 50px;
+    padding: 30px 0;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
 }
