@@ -1,10 +1,10 @@
 @font-face {
-    font-family: "Roc Grotesk Bold";
-    src: url("./fonts/rocgrotesk-bold.otf") format("opentype");
+    font-family: "ClashDisplay SemiBold";
+    src: url("./fonts/ClashDisplay-Semibold.otf") format("opentype");
 }
 @font-face {
-    font-family: "Roc Grotesk Reg";
-    src: url("./fonts/rocgrotesk-regular.otf") format("opentype");
+    font-family: "ClashDisplay Regular";
+    src: url("./fonts/ClashDisplay-Regular.otf") format("opentype");
 }
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
