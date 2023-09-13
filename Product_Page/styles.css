@@ -7,14 +7,16 @@
     src: url("./fonts/rocgrotesk-regular.otf") format("opentype");
 }
 body{
-    width: 90%;
+    font-family: "Roc Grotesk Reg",sans-serif;
+    padding-top: 60px;
+    max-width: 1200px;
     margin: auto;
 }
 #heading{
     font-family: "Roc Grotesk Bold",sans-serif;
     font-size: 32px;
-color: #43680b;
-margin: 0;
+    color: #486e00;
+    margin: 0;
 }
 #heading_container{
     padding: 10px;
@@ -27,9 +29,44 @@ margin: 0;
 #catalog_underline{
     max-width: 100%;
 }
+#products_container{
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+gap: 30px;
+}
+.product_img_container {
+    position: relative;
+}
+.product_container{
+    max-width: 30%;
+    background-color: #fdfce2;
+}
+.product_img_container svg {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
 
+.product_img_container img {
+    z-index: 0;
+    max-width: 100%;
+}
 @media screen and (max-width:1080px) {
     #heading {
             font-size: 16px;
+    }
+    .product_container {
+            max-width: 33%;
         }
+    }
+@media screen and (max-width:720px) {
+    #heading {
+        font-size: 14px;
+    }
+
+    .product_container {
+        max-width: 80;
+    }
 }
