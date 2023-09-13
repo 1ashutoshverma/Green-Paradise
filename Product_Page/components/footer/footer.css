@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "Roc Grotesk Bold";
+    src: url("./fonts/rocgrotesk-bold.otf") format("opentype");
+}
+@font-face {
+    font-family: "Roc Grotesk Reg";
+    src: url("./fonts/rocgrotesk-regular.otf") format("opentype");
+}
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
 #footer_col1{
@@ -9,14 +17,6 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-@font-face {
-    font-family: "Roc Grotesk Bold";
-    src: url("../fonts/rocgrotesk-bold.otf") format("opentype");
-}
-@font-face {
-    font-family: "Roc Grotesk Reg";
-    src: url("../fonts/rocgrotesk-regular.otf") format("opentype");
 }
  .footer_heading{
     font-family: "Roc Grotesk Bold", sans-serif;
