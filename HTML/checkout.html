@@ -12,6 +12,10 @@
   
 </head>
 <body>
+
+  <div id="navbar">
+
+  </div>
  
   <div id="kkcontainer">
     <div class="kkleft">
@@ -35,17 +39,13 @@
         </div>
       </div>
       <div class="kkbelow">
-        <h4>Add a comment to the order <i class="fa-thin fa-angle-down fa-2xs"></i></i></h4>
-
-        <div class="checkbox">
-          <label for="">
-            <input type="checkbox">
-            Hello
-          </label>
-        </div>
-        
+        <h4>Add a comment to the order <i class="fa-thin fa-angle-down fa-2xs"></i></i></h4>        
     </div>
 
+    <div class="checkbox">
+      <input type="checkbox">
+      You can not call me to confirm your order
+    </div>
       <div>
         <button class="kkcont">Continue</button>
       </div>
@@ -97,13 +97,29 @@
       </div>
 
       <div class="kkpay">
-        <button class="kkpaybtn">Proceed to Pay</button>
+        <button id="kkpaybtn">Proceed to Pay</button>
       </div>
 
     </div>
     <div class="kkright">
       <div class="kkorders">
         <h1>Your Orders</h1>
+        <img class="kkcontImg2" src="../images/wave.png" alt="">
+      </div>
+      <div class="kkrightcontent">
+          <div class="itemImg">
+
+          </div>
+          <div class="itemDetails">
+              <h4 class="itemName"></h4>
+              <p class="itemType"></p>
+              <p>Qty</p>
+          </div>
+      </div>
+      <div class="itemPricing">
+        <p>Sale <span class="salePrice"></span></p>
+        <p>Delivery <span class="deliveryCharge"></span></p>
+        <h4>Total <span class="totalAmt"></span></h4>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 #kkcontainer{
-  width: 80%;
+  width: 90%;
   margin: auto;
   display: flex;
  justify-content:space-evenly;
@@ -9,14 +9,14 @@ input{
   border-radius: 8px;
  border: 2px solid grey;
  padding: 3px;
- width: 200px;
+ width: 250px;
  
 }
 #indian-states {
   border-radius: 8px;
   border: 2px solid grey;
   padding: 3px;
-  width: 210px;
+  width: 260px;
 }
 .kkdetails{
   margin-top: 10px;
@@ -39,14 +39,14 @@ button{
   padding: 10px;
   border: none;
   border-radius: 10px;
-  background-color: green;
+  background-color: rgb(24, 81, 26);
   color: white;
   cursor: pointer;
-  width: 50%;
+  width: 100%;
   letter-spacing: 1px;
 }
 h1,h5{
-  color: green;
+  color:  rgb(24, 81, 26);
 }
 
 
@@ -58,16 +58,21 @@ h1,h5{
 
 .kkpaybtn{
   color: white;
-  background-color: rgb(5, 120, 9);
+  background-color: rgb(24, 81, 26);
   width: 100%;
 }
 
-.checkbox{
-  display: flex;
-  justify-content: flex-start;
+.checkbox input[type="checkbox"] {
+margin: 0%;
+ 
 }
+
 
 .kkcontImg{
   width: 150px;
+  margin-top: -80px;
+}
+.kkcontImg2{
+  width: 190px;
   margin-top: -80px;
 }
