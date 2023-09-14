@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/checkout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
   
@@ -14,8 +16,8 @@
   <div id="kkcontainer">
     <div class="kkleft">
       <div class="kkleftUp">
-        <h2>Check out</h2>
-        <img src="" alt="">
+        <h1>Check out</h1>
+        <img class="kkcontImg" src="../images/wave.png" alt="">
       </div>
 
       <div class="kkaddress">
@@ -24,26 +26,84 @@
      
       <div class="kkinputfields">
         <div class="kkinputname">
-          <input type="text" name="Firstname" >
-          <input type="text" name="Lastname">
+          <input type="text" placeholder="Firstname" >
+          <input type="text" placeholder="Lastname">
         </div>
         <div class="kkdetails">
-          <input type="number" name="Firstname" >
-          <input type="text" name="Firstname">
+          <input type="number"  placeholder="Number">
+          <input type="text" placeholder="email">
+        </div>
+      </div>
+      <div class="kkbelow">
+        <h4>Add a comment to the order <i class="fa-thin fa-angle-down fa-2xs"></i></i></h4>
+
+        <div class="checkbox">
+          <label for="">
+            <input type="checkbox">
+            Hello
+          </label>
+        </div>
+        
+    </div>
+
+      <div>
+        <button class="kkcont">Continue</button>
+      </div>
+     
+
+      <div class="kkdelivery">
+        <input type="text" placeholder="Country" >
+        <select id="indian-states">
+          <option value="">Select State</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option value="West Bengal">West Bengal</option>
+      </select>
+      
+      <div class="kkcity">
+        <input type="text" placeholder="City" >
+      <input type="number" placeholder="PIN">
+      </div>
+
+        <div class="kkbuttons">
+          <button>Go Back</button>
+          <button>Continue</button>
         </div>
       </div>
 
-      <div class="kkbuttons">
-        <button>Go Back</button>
-        <button>Continue</button>
-
+      <div class="kkpay">
+        <button class="kkpaybtn">Proceed to Pay</button>
       </div>
-     
 
     </div>
     <div class="kkright">
       <div class="kkorders">
-        <h2>Your Orders</h2>
+        <h1>Your Orders</h1>
       </div>
     </div>
   </div>
