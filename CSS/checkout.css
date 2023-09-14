@@ -30,9 +30,11 @@ input{
 .kkcont{
   justify-content:end;
 }
-.kkdelivery{
+#kkdelivery{
+  /* border: 1px solid red; */
   margin-top: 10px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  display : none;
 }
 
 button{
@@ -45,7 +47,7 @@ button{
   width: 100%;
   letter-spacing: 1px;
 }
-h1,h5{
+h1,h3{
   color:  rgb(24, 81, 26);
 }
 
@@ -62,9 +64,21 @@ h1,h5{
   width: 100%;
 }
 
-.checkbox input[type="checkbox"] {
-margin: 0%;
+.checkbox {
+/* border: 1px solid red; */
+ display: flex;
+ justify-content: space-between;
  
+}
+.checkbox div{
+  width: 93%;
+/* border: 1px solid red; */
+}
+#input_checkbox{
+  border-radius: 8px;
+  border: 2px solid grey;
+  padding: 0px;
+  width: 15px;
 }
 
 

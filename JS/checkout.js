@@ -28,3 +28,24 @@ document.getElementById('kkpaybtn').addEventListener('click', function(e) {
     rzp.open();
     e.preventDefault();
 });
+
+
+document.getElementById("kkcont").addEventListener("click", () => {
+    let menu = document.getElementById("kkdelivery");
+    // let display = window.getComputedStyle(menu).display;
+    menu.style.display = "block";
+
+    let menu2 = document.getElementById("kkpersonalInfoCont");
+    menu2.style.display = "none";
+   
+  });
+
+  document.getElementById("kkbackbtn").addEventListener("click", () => {
+    let menu = document.getElementById("kkdelivery");
+    // let display = window.getComputedStyle(menu).display;
+    menu.style.display = "";
+
+    let menu2 = document.getElementById("kkpersonalInfoCont");
+    menu2.style.display = "block";
+   
+  });

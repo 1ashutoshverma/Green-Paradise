@@ -23,11 +23,8 @@
         <h1>Check out</h1>
         <img class="kkcontImg" src="../images/wave.png" alt="">
       </div>
-
-      <div class="kkaddress">
-        <h5>Personal Info <span>Delivery</span> <span>Payment</span></h5>
-      </div>
-     
+     <div id="kkpersonalInfoCont">
+      <h3>Personal Info</h3>
       <div class="kkinputfields">
         <div class="kkinputname">
           <input type="text" placeholder="Firstname" >
@@ -38,20 +35,27 @@
           <input type="text" placeholder="email">
         </div>
       </div>
-      <div class="kkbelow">
-        <h4>Add a comment to the order <i class="fa-thin fa-angle-down fa-2xs"></i></i></h4>        
-    </div>
+      <!-- <div class="kkbelow">
+        <h4>Add a comment to the order</h4> 
+        <div id="">
+
+        </div>       
+    </div> -->
 
     <div class="checkbox">
-      <input type="checkbox">
+      <input type="checkbox" id="input_checkbox">
+     <div>
       You can not call me to confirm your order
+     </div>
     </div>
       <div>
-        <button class="kkcont">Continue</button>
+        <button id="kkcont">Continue</button>
       </div>
+     </div>
      
 
-      <div class="kkdelivery">
+      <div id="kkdelivery">
+        <h3>Delivery Address</h3>
         <input type="text" placeholder="Country" >
         <select id="indian-states">
           <option value="">Select State</option>
@@ -91,16 +95,18 @@
       </div>
 
         <div class="kkbuttons">
-          <button>Go Back</button>
-          <button>Continue</button>
+          <button id="kkbackbtn">Go Back</button>
+          <button id="kkpaybtn">Proceed to Pay</button>
         </div>
       </div>
 
-      <div class="kkpay">
+      <!-- <div class="kkpay">
         <button id="kkpaybtn">Proceed to Pay</button>
-      </div>
+      </div> -->
 
     </div>
+
+
     <div class="kkright">
       <div class="kkorders">
         <h1>Your Orders</h1>
