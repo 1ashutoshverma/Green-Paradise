@@ -28,25 +28,29 @@ soilFertilizerFilter.onchange=()=>{
     soil_fertilizers=!soil_fertilizers
     render(sortNfilter())
 }
-let sorting =document.getElementById('sorting')
-sorting.onchange=()=>render(sortNfilter())
+let sorting = document.getElementById('sorting')
+sorting.onchange = ()=>render(sortNfilter())
 let sortNfilter = () => {
     let filtered = productFilter()
     let sortedNFiltered = productSort(filtered)
     return sortedNFiltered;
 }
 let productFilter = () =>{
-    let res = products.filter(el=>{
-        if(!houseplants && !houseplant_sets && !flowerpots && !soil_fertilizers)return el.price<=priceRangeFilter.value;
+    let priceRange = parseInt(priceRangeFilter.value);
+    let data = products.filter(el=>{
+        if(!houseplants && !houseplant_sets && !flowerpots && !soil_fertilizers)return el.price <= priceRange;
         let res = false;
-        if(houseplants)res = res || el.category === "Houseplants";
-        if(houseplant_sets)res = res || el.category === "Houseplant Sets"
-        if(flowerpots)res = res || el.category === "Flowerpot"
-        if(soil_fertilizers)res = res || el.category === "Soil" || el.category === "Fertilizer";
-        return el.price<=parseInt(priceRangeFilter.value) && res;
+        if(houseplants && el.category === "Houseplants")
+            res = true ;
+        if(houseplant_sets && el.category === "Houseplant Sets")
+            res = true;
+        if(flowerpots && el.category === "Flowerpot")
+            res = true
+        if(soil_fertilizers && (el.category === "Soil" || el.category === "Fertilizer"))
+            res = true;
+        return el.price <= priceRange && res;
     })
-    console.log(res)
-    return res;
+    return data;
 }
 let productSort=(data)=>{
     let val = sorting.value
