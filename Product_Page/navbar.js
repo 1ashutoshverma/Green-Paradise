@@ -3,7 +3,8 @@ let navbar_smallscreen = document.getElementById("navbar_smallscreen_container")
 
 
 function navbarBigscreen() {
-  navbar_bigscreen.innerHTML = `<div id="navbar_bigscreen">
+  navbar_bigscreen.innerHTML = `
+  <div id="navbar_bigscreen">
     <div id="first_bigscreen">
       <a href="index.html">Green paradise</a>
     </div>
@@ -64,7 +65,8 @@ function navbarBigscreen() {
 }
 
 function navbarSmallscreen() {
-  navbar_smallscreen.innerHTML = ` <div id="navbar_smallscreen">
+  navbar_smallscreen.innerHTML = `
+  <div id="navbar_smallscreen">
     <div id="first_smallscreen">
       <a href="./index.html">Green Paradise</a>
     </div>

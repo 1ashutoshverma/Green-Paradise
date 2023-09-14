@@ -40,3 +40,13 @@ soilFertilizerFilter.onchange=()=>{
     soil_fertilizers=!soil_fertilizers
     filter()
 }
+let sorting =document.getElementById('sorting')
+sorting.onchange=()=>{
+    let val = event.target.value
+    let temp = [...products]
+    if(val==="atoz")render(temp.sort((a,b)=>a.name.localeCompare(b.name)))
+    else if(val==="ztoa")render(temp.sort((a,b)=> -a.name.localeCompare(b.name)))
+    else if(val==="lowtohigh")render(temp.sort((a,b)=> a.price-b.price))
+    else if(val==="hightolow")render(temp.sort((a,b)=> b.price-a.price))
+    else render(products)
+}
