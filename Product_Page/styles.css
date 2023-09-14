@@ -1,0 +1,116 @@
+@font-face {
+    font-family: "ClashDisplay SemiBold";
+    src: url("./fonts/ClashDisplay-Semibold.otf") format("opentype");
+}
+@font-face {
+    font-family: "ClashDisplay Regular";
+    src: url("./fonts/ClashDisplay-Regular.otf") format("opentype");
+}
+body{
+    font-family: "ClashDisplay Regular",sans-serif;
+    padding-top: 60px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fffff7;
+}
+#content{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+#filters_sort{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+#applied_filters{width: 50%;
+    display: flex;
+        justify-content: space-between;}
+#sorting{
+    border: none;
+    font-family: "ClashDisplay Regular",sans-serif;
+    background-color: none;
+    width: max-content;
+    height: 30px;
+    margin: 10px;
+    padding: 5px;
+}
+#heading{
+    font-family: "ClashDisplay SemiBold",sans-serif;
+    font-size: 32px;
+    color: #486e00;
+    margin: 0;
+}
+#products{
+    display: flex;
+    flex-direction: column;
+}
+
+#heading_container{
+    padding: 10px;
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+#price_range_filter_container{
+    display: flex;
+    
+}
+#catalog_underline{
+    max-width: 100%;
+}
+#products_container{
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+.product_img_container {
+    position: relative;
+}
+.product_container{
+background-color: #fdfce2;
+}
+.product_img_container svg {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
+
+.product_img_container img {
+    z-index: 0;
+    max-width: 100%;
+}
+#heading_appliedfilters_sort{
+    display: flex;
+    flex-direction: column;
+}
+#applied_filters_sort{
+    display: flex;
+justify-content: space-between;
+}
+#reset_filters{display: flex;
+align-items: center;}
+
+footer *{
+    font-family: "ClashDisplay Regular", sans-serif;
+}
+@media screen and (max-width:1000px) {
+    #heading {
+            font-size: 16px;
+    }
+    #products_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    }
+@media screen and (max-width:720px) {
+    #heading {
+        font-size: 16px;
+    }
+    #products_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

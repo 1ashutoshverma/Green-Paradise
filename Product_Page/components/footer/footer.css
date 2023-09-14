@@ -1,0 +1,69 @@
+@font-face {
+    font-family: "ClashDisplay SemiBold";
+    src: url("./fonts/ClashDisplay-Semibold.otf") format("opentype");
+}
+@font-face {
+    font-family: "ClashDisplay Regular";
+    src: url("./fonts/ClashDisplay-Regular.otf") format("opentype");
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+#footer_col1{
+      display: flex;
+}
+
+footer{
+    padding: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+ .footer_heading{
+    font-family: "ClashDisplay SemiBold", sans-serif;
+ }
+ .green_footer_heading{
+    color: #43680b;
+    padding-bottom: 1px;
+ }
+.foot_links{
+    color: #4f4e4c;
+    font-family: "ClashDisplay Regular",sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+}
+.footer_col{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#scroll_2_top {
+    align-self: center;
+        background-color: #486d00;
+        color: white;
+        padding: 10px;
+        width: 75px;
+        height: 75px;
+        display: flex;
+        border-radius: 100%;
+        justify-content: center;
+        align-items: center;
+        border: none;
+}
+
+#scroll_2_top svg {
+    max-height: 66%;
+    max-width: 66%;
+    border-radius: 100%;
+}
+#col1_buttons{
+    display: flex;
+    margin-top: -15px;
+    padding-bottom: 10px;
+    width: 33%;
+    height: 25px;
+    align-items: center;
+    justify-content: space-around;
+    
+}
