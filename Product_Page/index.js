@@ -1,35 +1,62 @@
 import footer  from "./components/footer/footer.js"
 import products,{render} from "./components/product_container/product_container.js"
 
-window.onload=()=>render(products)
+window.onload = () => {
+    start = render(products,0)
+}
+window.onscroll = ()=>{
+    if(Math.ceil(window.scrollY)+900>=document.querySelector('body').clientHeight)start = render(data,start,"scroll")
+}
 document.getElementById('footer').innerHTML = footer();
 let houseplants = false, houseplant_sets = false,flowerpots=false,soil_fertilizers = false
 let houseplantFilter = document.getElementById('houseplant_filter')
+let data = products,start = 0;
 houseplantFilter.onchange=()=>{
-    houseplants=!houseplants
-    render(sortNfilter())
+    houseplants=!houseplants;
+    data = sortNfilter();
+    start =render(data,0);
 }
+
 let priceRangeFilter = document.getElementById('price_range_filter')
 priceRangeFilter.onchange = ()=>{
-    render(sortNfilter())
+    data = sortNfilter();
+    start = render(data,0)
 }
 let houseplantSetsFilter = document.getElementById('houseplant_set_filter')
 houseplantSetsFilter.onchange=()=>{
     houseplant_sets=!houseplant_sets
-    render(sortNfilter())   
+    data = sortNfilter();
+    start = render(data,0)
+
 }
 let flowerpotFilter = document.getElementById('flowerpot_filter')
 flowerpotFilter.onchange=()=>{
     flowerpots=!flowerpots
-    render(sortNfilter())
+    data = sortNfilter();
+    start = render(data,0)
+
 }
 let soilFertilizerFilter = document.getElementById('soil_and_fertilizers_filter')
 soilFertilizerFilter.onchange=()=>{
     soil_fertilizers=!soil_fertilizers
-    render(sortNfilter())
+    data = sortNfilter();
+    start = render(data,0)
+
 }
 let sorting = document.getElementById('sorting')
-sorting.onchange = ()=>render(sortNfilter())
+sorting.onchange = ()=>{
+    data = sortNfilter();
+    start = render(data,0)
+}
+document.getElementById('reset_filters').onclick=()=>{
+    if(houseplants)houseplantFilter.click()
+    if(houseplant_sets)houseplantSetsFilter.click()
+    if(flowerpots)flowerpotFilter.click()
+    if(soil_fertilizers)soilFertilizerFilter.click()
+    priceRangeFilter.value=2500
+    data = sortNfilter();
+    start = render(products,0)
+}
 let sortNfilter = () => {
     let filtered = productFilter()
     let sortedNFiltered = productSort(filtered)
@@ -37,11 +64,11 @@ let sortNfilter = () => {
 }
 let productFilter = () =>{
     let priceRange = parseInt(priceRangeFilter.value);
-    let data = products.filter(el=>{
+    data = products.filter(el=>{
         if(!houseplants && !houseplant_sets && !flowerpots && !soil_fertilizers)return el.price <= priceRange;
         let res = false;
         if(houseplants && el.category === "Houseplants")
-            res = true ;
+            res = true;
         if(houseplant_sets && el.category === "Houseplant Sets")
             res = true;
         if(flowerpots && el.category === "Flowerpot")
