@@ -308,15 +308,6 @@ body {
 #humburger_icon_menu a:hover {
   color: #a8a6a6;
 }
-/* Testing perpose only */
-#other {
-  padding-top: 57px;
-}
-.abc {
-  height: 200px;
-  background-color: #486e00;
-  border: 1px solid red;
-}
 
 @media screen and (width>750px) {
   #navbar_smallscreen_container {
