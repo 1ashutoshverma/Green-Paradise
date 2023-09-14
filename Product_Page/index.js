@@ -1,5 +1,6 @@
 import footer  from "./components/footer/footer.js"
 import products,{render} from "./components/product_container/product_container.js"
+
 window.onload=()=>render(products)
 document.getElementById('footer').innerHTML = footer();
 let houseplants = false, houseplant_sets = false,flowerpots=false,soil_fertilizers = false
@@ -9,11 +10,11 @@ houseplantFilter.onchange=()=>{
     filter()
 }
 let priceRangeFilter = document.getElementById('price_range_filter')
-let priceFilter = (val)=>{
+priceRangeFilter.onchange = ()=>{
+    let val = event.target.value;
     render(products.filter(el=>parseInt(el.price)<=val))
 }
-priceRangeFilter.onchange = ()=>priceFilter(event.target.value)
-let filter = ()=>{
+let filter = () => {
     render(products.filter(el=>{
         if(!houseplants && !houseplant_sets && !flowerpots && !soil_fertilizers)return true;
         let res = false;

@@ -20,7 +20,7 @@ footer{
     justify-content: space-around;
 }
  .footer_heading{
-    font-family: "Roc Grotesk Bold", sans-serif;
+    font-family: "ClashDisplay SemiBold", sans-serif;
  }
  .green_footer_heading{
     color: #43680b;
@@ -28,7 +28,7 @@ footer{
  }
 .foot_links{
     color: #4f4e4c;
-    font-family: "Roc Grotesk Reg",sans-serif;
+    font-family: "ClashDisplay Regular",sans-serif;
     font-size: 14px;
     text-decoration: none;
 }
