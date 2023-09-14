@@ -86,7 +86,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* display: none; */
+  display: none;
 }
 
 #login2_bigscreen div:nth-child(2) img {
@@ -203,7 +203,7 @@ body {
 }
 #login2_smallscreen {
   display: flex;
-  /* display: none; */
+  display: none;
 }
 
 #cart_smallscreen {

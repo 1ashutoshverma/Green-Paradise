@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="parent">
+      <h1>GreenParadise</h1>
+      <h5 id="login" class="h2" tabindex="-1">Welcome back! Sign in with</h5>
+      <div id="images">
+        <img
+          id="fb"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRztMLZ5RO6EhrIJrzmBK2Kh2tLmsroesf87g&usqp=CAU"
+          alt=""
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNwtv-SfCJADd7ibbG64VkJgYgGHf_68mojA&usqp=CAU"
+          alt=""
+        />
+      </div>
+      <form id="form">
+        <div class="child">
+          <!-- <label for="email">* Email address</label> -->
+          <input type="email" id="email" placeholder="Email" required="" />
+        </div>
+
+        <div class="child">
+          <!-- <label for="password">* Password</label> -->
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required=""
+          />
+        </div>
+
+        <div class="child">
+          <button type="submit">SIGN IN</button>
+        </div>
+      </form>
+      <a href="" style="margin-top: 10px">FORGOT YOUR PASSWORD?</a><br />
+      <a id="openPopup" href="./signUp.html">SignUp</a>
+    </div>
+    <!-- <div class="parent">
+    <h2>New Customers</h2>
+    <button type="submit"><a href="./signUp.html">CONTINUE</a></button>
+  </div> -->
+  </body>
+  <script>
+    // document.getElementById('openPopup').addEventListener('click', function () {
+    //   window.open('signUp.html', 'popup', 'width=400,height=400');
+    // });
+    var arr = JSON.parse(localStorage.getItem("usersArray")) || [];
+    var form = document.getElementById("form");
+    console.log("hi");
+    form.addEventListener("submit", function () {
+      event.preventDefault();
+      var email = form.email.value;
+      var password = form.password.value;
+      console.log(email, password);
+      var res = false;
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].email == email && arr[i].password == password) {
+          res = true;
+          break;
+        }
+      }
+      // console.log(res);
+      if (res) {
+        alert("Login Successful");
+        // window.location.href = "./homepage.html"
+      } else {
+        alert("Invalid credentials");
+      }
+    });
+  </script>
+</html>

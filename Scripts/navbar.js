@@ -131,8 +131,105 @@ function navbarSmallscreen() {
     </div>
   </div>`;
 }
+
+let login_screen = document.getElementById("popup_login");
+function loginScreen() {
+  login_screen.innerHTML = ` <div class="parent">
+  <div>
+    <h2>Green paradise</h2>
+    <div id="closing_login">
+      <img src="./Images/navbar_images/cross-svgrepo-com.svg" alt="" />
+    </div>
+  </div>
+  <h5 id="login" class="h2" tabindex="-1">Welcome back! Sign in with</h5>
+  <div id="images">
+    <img
+      id="fb"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRztMLZ5RO6EhrIJrzmBK2Kh2tLmsroesf87g&usqp=CAU"
+      alt=""
+    />
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNwtv-SfCJADd7ibbG64VkJgYgGHf_68mojA&usqp=CAU"
+      alt=""
+    />
+  </div>
+  <form id="form1" class="form">
+    <div class="child">
+      <!-- <label for="email">* Email address</label> -->
+      <input type="email" id="email1" placeholder="Email" class = "email" required="" />
+    </div>
+
+    <div class="child">
+      <!-- <label for="password">* Password</label> -->
+      <input
+        type="password"
+        id="password1"
+        class = "password"
+        placeholder="Password"
+        required=""
+      />
+    </div>
+
+    <div class="child">
+      <button type="submit" id="signin_button">SIGN IN</button>
+    </div>
+  </form>
+  <a href="" style="margin-top: 10px; text-decoration: none; color: black"
+    >FORGOT YOUR PASSWORD?</a
+  ><br />
+  <p id="go_to_from_login" class="buttons_log">Sign up</p>
+</div>`;
+}
+
+let signup_screen = document.getElementById("popup_signup");
+
+function signupScreen() {
+  signup_screen.innerHTML = `<div class="parent">
+  <div>
+    <h2>Create an email account</h2>
+    <div id="closing_signup">
+      <img src="./Images/navbar_images/cross-svgrepo-com.svg" alt="" />
+    </div>
+  </div>
+
+  <form id="form2" class="form">
+    <div class="child">
+      <label for="username">* Full Name</label>
+      <input type="text" id="username" required />
+    </div>
+
+    <div class="child">
+      <label for="email">* Email address</label>
+      <input type="email" id="email2"  class = "email"required />
+    </div>
+
+    <div class="child">
+      <label for="password">* Password</label>
+      <input type="password" required />
+    </div>
+
+    <div class="child">
+      <label for="confirmpassword">* Confirm Password</label>
+      <input type="password" id="confirmpassword"  class = "password" required />
+    </div>
+
+    <div class="child">
+      <label for="phone">Cell Phone Number<span>(Optional)</span></label>
+      <input type="number" id="number" />
+    </div>
+
+    <div class="child">
+      <button type="submit" id="signup_by_email">CONTINUE</button>
+    </div>
+    <p id="go_to_from_sign_up" class="buttons_log">Login</p>
+  </form>
+</div>`;
+}
+
 navbarBigscreen();
 navbarSmallscreen();
+loginScreen();
+signupScreen();
 
 //------------------------Big screen functionality -------------------------->>
 document.getElementById("login2_bigscreen").addEventListener("click", () => {
@@ -144,13 +241,40 @@ document.getElementById("login2_bigscreen").addEventListener("click", () => {
   } else {
     menu.style.display = "none";
   }
-  document.getElementById("dropdowns_small_screen").style.display = "";
 });
 document
   .getElementById("user_dropdown_bigscreen")
   .addEventListener("click", () => {
     window.location = "./index.html";
   });
+
+// --------------------login and signup buttons ----------------------->>
+document.getElementById("login1_bigscreen").addEventListener("click", () => {
+  let menu = document.getElementById("popup_login");
+  menu.style.display = "flex";
+});
+document.getElementById("closing_login").addEventListener("click", () => {
+  let menu = document.getElementById("popup_login");
+  menu.style.display = "";
+});
+
+document.getElementById("go_to_from_sign_up").addEventListener("click", () => {
+  let menu = document.getElementById("popup_signup");
+  let menu2 = document.getElementById("popup_login");
+  menu.style.display = "";
+  menu2.style.display = "block";
+});
+document.getElementById("closing_signup").addEventListener("click", () => {
+  let menu = document.getElementById("popup_signup");
+  menu.style.display = "";
+});
+document.getElementById("go_to_from_login").addEventListener("click", () => {
+  let menu = document.getElementById("popup_signup");
+  let menu2 = document.getElementById("popup_login");
+  menu2.style.display = "";
+  menu.style.display = "block";
+});
+
 //----------------------- Small Screen FUnctionality ------------------------->>
 //humbuger icon open and close
 document.getElementById("third_smallscreen").addEventListener("click", () => {
@@ -162,7 +286,6 @@ document.getElementById("third_smallscreen").addEventListener("click", () => {
   } else {
     menu.style.display = "none";
   }
-  document.getElementById("dropdowns_small_screen").style.display = "";
 });
 
 //Login open and close
@@ -175,8 +298,6 @@ document.getElementById("login2_smallscreen").addEventListener("click", () => {
   } else {
     menu.style.display = "none";
   }
-  //display for search
-  document.getElementById("dropdowns_small_screen").style.display = "";
 });
 
 //Search open and close
@@ -189,10 +310,149 @@ document.getElementById("search_smallscreen").addEventListener("click", () => {
   } else {
     menu.style.display = "none";
   }
-  document.getElementById("humburger_icon_menu").style.display = "";
+});
+
+document.getElementById("login1_smallscreen").addEventListener("click", () => {
+  let menu = document.getElementById("popup_login");
+  menu.style.display = "flex";
+});
+
+//before that check of something is present in the user data
+let userData = JSON.parse(localStorage.getItem("userData")) || {};
+
+if (
+  userData.login_status == "" ||
+  userData.login_status == null ||
+  userData.login_status == undefined ||
+  userData.login_status == "loggedOut"
+) {
+  document.getElementById("login1_bigscreen").style.display = "flex";
+  document.getElementById("login2_bigscreen").style.display = "";
+  document.getElementById("login1_smallscreen").style.display = "flex";
+  document.getElementById("login2_smallscreen").style.display = "";
+} else {
+  document.getElementById("login1_bigscreen").style.display = "";
+  document.getElementById("login2_bigscreen").style.display = "flex";
+  document.getElementById("login1_smallscreen").style.display = "";
+  document.getElementById("login2_smallscreen").style.display = "flex";
+}
+
+// ------------------------- Login and signup functionality ------------------->>
+
+// Import the functions you need from the SDKs you need
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signOut,
+  signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAyhLvPLl1z0fJyGgzVwXo5m0mYO60W47U",
+  authDomain: "green-paradise-75c72.firebaseapp.com",
+  projectId: "green-paradise-75c72",
+  storageBucket: "green-paradise-75c72.appspot.com",
+  messagingSenderId: "647348363237",
+  appId: "1:647348363237:web:49295771dad6b05469190c",
+  measurementId: "G-NGTCGYYT5G",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth();
+//-------------------------SignUp------------------------------>>
+let signup_by_email = document.getElementById("signup_by_email");
+signup_by_email.addEventListener("click", () => {
+  let email = document.getElementById("email2").value;
+  let password = document.getElementById("confirmpassword").value;
+  let username = document.getElementById("username").value;
+  console.log(username);
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+
+      userData = {
+        username: email,
+        login_status: "loggedIn",
+      };
+      document.getElementById("login1_bigscreen").style.display = "";
+      document.getElementById("login2_bigscreen").style.display = "flex";
+      document.getElementById("login1_smallscreen").style.display = "";
+      document.getElementById("login2_smallscreen").style.display = "flex";
+      localStorage.setItem("userData", JSON.stringify(userData));
+      console.log(user);
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+});
+
+//--------------------------------Login------------------------>>
+let signin_button = document.getElementById("signin_button");
+signin_button.addEventListener("click", () => {
+  let email = document.getElementById("email1").value;
+  let password = document.getElementById("password1").value;
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+
+      let name = userData.username;
+
+      userData = {
+        username: name,
+        login_status: "loggedIn",
+      };
+      document.getElementById("login1_bigscreen").style.display = "";
+      document.getElementById("login2_bigscreen").style.display = "flex";
+      document.getElementById("login1_smallscreen").style.display = "";
+      document.getElementById("login2_smallscreen").style.display = "flex";
+      localStorage.setItem("userData", JSON.stringify(userData));
+      console.log(user);
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+});
+
+// ---------------------logout-------------------->>
+let logout_bigscreen = document.getElementById("logout_dropdown_bigscreen");
+logout_bigscreen.addEventListener("click", () => {
+  console.log("clicked");
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+      console.log("logout done");
+      userData = {
+        login_status: "loggedOut",
+      };
+      document.getElementById("login1_bigscreen").style.display = "flex";
+      document.getElementById("login2_bigscreen").style.display = "";
+      document.getElementById("login1_smallscreen").style.display = "flex";
+      document.getElementById("login2_smallscreen").style.display = "";
+      localStorage.setItem("userData", JSON.stringify(userData));
+    })
+    .catch((error) => {
+      // An error happened.
+      console.log(error);
+    });
 });
 
 //Search functionality add product here by creating a div and append it
 let add_searched_product = document.getElementById("search_result_smallscreen");
 
-export { navbarBigscreen, navbarSmallscreen };
+export { navbarBigscreen, navbarSmallscreen, loginScreen, signupScreen };
