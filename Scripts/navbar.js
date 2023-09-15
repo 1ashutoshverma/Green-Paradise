@@ -331,11 +331,19 @@ if (
   document.getElementById("login1_smallscreen").style.display = "flex";
   document.getElementById("login2_smallscreen").style.display = "";
 } else {
+  document.getElementById("user_dropdown_bigscreen").innerText =
+    userData.username;
   document.getElementById("login1_bigscreen").style.display = "";
   document.getElementById("login2_bigscreen").style.display = "flex";
   document.getElementById("login1_smallscreen").style.display = "";
   document.getElementById("login2_smallscreen").style.display = "flex";
 }
+
+//to touch any where in the body all droupdowns should be gone
+
+// document.querySelector("body").addEventListener("click", () => {
+//   document.getElementById("login2_bigscreen_dropdown").style.display = "";
+// });
 
 // ------------------------- Login and signup functionality ------------------->>
 
@@ -348,6 +356,7 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   signInWithEmailAndPassword,
+  GoogleAuthProvider,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -381,13 +390,17 @@ signup_by_email.addEventListener("click", () => {
       const user = userCredential.user;
 
       userData = {
-        username: email,
+        username: username,
         login_status: "loggedIn",
       };
+      signup_screen.style.display = "";
+      document.getElementById("user_dropdown_bigscreen").innerText =
+        userData.username;
       document.getElementById("login1_bigscreen").style.display = "";
       document.getElementById("login2_bigscreen").style.display = "flex";
       document.getElementById("login1_smallscreen").style.display = "";
       document.getElementById("login2_smallscreen").style.display = "flex";
+
       localStorage.setItem("userData", JSON.stringify(userData));
       console.log(user);
       // ...
@@ -395,6 +408,7 @@ signup_by_email.addEventListener("click", () => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      alert("credentials are wrong!");
       // ..
     });
 });
@@ -415,6 +429,9 @@ signin_button.addEventListener("click", () => {
         username: name,
         login_status: "loggedIn",
       };
+      login_screen.style.display = "";
+      document.getElementById("user_dropdown_bigscreen").innerText =
+        userData.username;
       document.getElementById("login1_bigscreen").style.display = "";
       document.getElementById("login2_bigscreen").style.display = "flex";
       document.getElementById("login1_smallscreen").style.display = "";
@@ -426,11 +443,13 @@ signin_button.addEventListener("click", () => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+      alert("credentials are wrong!");
     });
 });
 
 // ---------------------logout-------------------->>
 let logout_bigscreen = document.getElementById("logout_dropdown_bigscreen");
+
 logout_bigscreen.addEventListener("click", () => {
   console.log("clicked");
   signOut(auth)
@@ -440,6 +459,7 @@ logout_bigscreen.addEventListener("click", () => {
       userData = {
         login_status: "loggedOut",
       };
+      document.getElementById("login2_bigscreen_dropdown").style.display = "";
       document.getElementById("login1_bigscreen").style.display = "flex";
       document.getElementById("login2_bigscreen").style.display = "";
       document.getElementById("login1_smallscreen").style.display = "flex";
@@ -451,6 +471,10 @@ logout_bigscreen.addEventListener("click", () => {
       console.log(error);
     });
 });
+
+// -------------------------google-------------------->>>
+
+const provider = new GoogleAuthProvider();
 
 //Search functionality add product here by creating a div and append it
 let add_searched_product = document.getElementById("search_result_smallscreen");
