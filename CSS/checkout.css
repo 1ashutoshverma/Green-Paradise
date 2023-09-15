@@ -58,6 +58,13 @@ h1,h3{
   gap: 30px;
 }
 
+/* #kkbackbtn{
+  background-color: white;
+  color: green;
+ border-color: #054203;
+ border-radius: 2px;
+} */
+
 .kkpaybtn{
   color: white;
   background-color: rgb(24, 81, 26);
@@ -89,4 +96,75 @@ h1,h3{
 .kkcontImg2{
   width: 190px;
   margin-top: -80px;
+}
+/* 
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #109506;
+  border-color:#109506 transparent #109506 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} */
+
+
+#itemDetails {
+  display: flex;
+  flex-direction: column;
+  height: 35vh;
+  overflow: auto;
+}
+
+
+#itemDetails::-webkit-scrollbar {
+  width: 3px;
+}
+
+
+#itemDetails::-webkit-scrollbar-thumb {
+  background: #a9aaa9; 
+  border-radius: 20px;
+}
+
+
+#itemDetails::-webkit-scrollbar-thumb:hover {
+  background: #054203;
+}
+#itemDetails>div{
+  display: flex;
+}
+#itemDetails > div img{
+  width: 25%;
+ 
+}
+
+#kkrightcontent >div{
+ 
+}
+
+#kkrightcontent ~div {
+ 
+  border: 1px solid red;
+  margin-top: 25px;
+ 
+}
+
+#deliveryCharge{
+ 
 }
