@@ -1,6 +1,6 @@
 import footer  from "./components/footer/footer.js"
 import products,{render} from "./components/product_container/product_container.js"
-
+import {render as popularProductsRender} from "./components/popular_products_container/popular_products_container.js"
 window.onload = () => {
     start = render(products,0)
 }
@@ -29,6 +29,8 @@ houseplantSetsFilter.onchange=()=>{
     start = render(data,0)
 
 }
+let popStart = 0
+popularProductsRender(popStart)
 let flowerpotFilter = document.getElementById('flowerpot_filter')
 flowerpotFilter.onchange=()=>{
     flowerpots=!flowerpots
