@@ -242,7 +242,7 @@ body {
   outline: none;
 }
 
-#dropdowns_small_screen > div:nth-child(2) {
+#search_result_smallscreen {
   width: 90%;
   background-color: white;
   margin: auto;
@@ -250,13 +250,15 @@ body {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   display: block;
-  /* display: none; */
+  display: none;
 }
+
 #search_result_smallscreen > div {
   width: 90%;
   margin: auto;
   padding: 8px 0px;
 }
+
 #search_result_smallscreen > div:hover {
   cursor: pointer;
   color: #486e00;
@@ -307,6 +309,9 @@ body {
 
 #humburger_icon_menu a:hover {
   color: #a8a6a6;
+}
+#logout_button_mobile {
+  display: none;
 }
 
 @media screen and (width>750px) {

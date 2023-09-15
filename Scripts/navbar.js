@@ -16,7 +16,7 @@ function navbarBigscreen() {
     </div>
     <div id="last_bigscreen">
       <div id="search_bigscreen">
-        <div><input type="text" placeholder="Search products...." /></div>
+        <div><input type="text" placeholder="Search products...." id="search_bigscreen_input"/></div>
         <div class="icon_bigscreen">
           <img src="./Images/navbar_images/search-icon.svg" alt="" />
         </div>
@@ -43,8 +43,7 @@ function navbarBigscreen() {
     <div id="dropdowns_bigscreen">
     <div>
       <div id="search_bigscreen_dropdown">
-        <div>hello</div>
-        <div>hello</div>
+        <div>No results...</div>
       </div>
       <div id="login2_bigscreen_dropdown">
         <div id="user_dropdown_bigscreen" class="dropdowns_user_bigscreen">
@@ -104,7 +103,7 @@ function navbarSmallscreen() {
   <!-- drop downs for small screen -->
   <div id="dropdowns_small_screen">
     <div>
-      <input type="text" placeholder="Search..." />
+      <input type="text" placeholder="Search..." id="input_smallscreen"/>
     </div>
     <div id="search_result_smallscreen">
       <div>Product1</div>
@@ -115,7 +114,7 @@ function navbarSmallscreen() {
   <div id="humburger_icon_menu">
     <div>
       <div>
-        <a href="./index.html">UserName</a>
+        <a href="./index.html" id="mobile_username">UserName</a>
         <a href="#">Cart</a>
       </div>
       <div>
@@ -126,7 +125,7 @@ function navbarSmallscreen() {
         <a href="#">About us</a>
       </div>
       <div>
-        <a href="./index.html">Logout</a>
+        <a href="./index.html" id="logout_button_mobile">Logout</a>
       </div>
     </div>
   </div>`;
@@ -148,7 +147,7 @@ function loginScreen() {
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRztMLZ5RO6EhrIJrzmBK2Kh2tLmsroesf87g&usqp=CAU"
       alt=""
     />
-    <img
+    <img id="google_auth"
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNwtv-SfCJADd7ibbG64VkJgYgGHf_68mojA&usqp=CAU"
       alt=""
     />
@@ -232,22 +231,31 @@ loginScreen();
 signupScreen();
 
 //------------------------Big screen functionality -------------------------->>
-document.getElementById("login2_bigscreen").addEventListener("click", () => {
-  let menu = document.getElementById("login2_bigscreen_dropdown");
-  let display = window.getComputedStyle(menu).display;
+document
+  .getElementById("login2_bigscreen")
+  .addEventListener("click", (event) => {
+    event.stopPropagation();
+    let menu = document.getElementById("login2_bigscreen_dropdown");
 
-  if (display === "none" || display === "") {
-    menu.style.display = "flex";
-  } else {
-    menu.style.display = "none";
-  }
-});
+    let display = window.getComputedStyle(menu).display;
+
+    if (display === "none" || display === "") {
+      menu.style.display = "flex";
+    } else {
+      menu.style.display = "none";
+    }
+  });
 document
   .getElementById("user_dropdown_bigscreen")
   .addEventListener("click", () => {
     window.location = "./index.html";
   });
 
+document
+  .getElementById("login2_bigscreen_dropdown")
+  .addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
 // --------------------login and signup buttons ----------------------->>
 document.getElementById("login1_bigscreen").addEventListener("click", () => {
   let menu = document.getElementById("popup_login");
@@ -301,16 +309,19 @@ document.getElementById("login2_smallscreen").addEventListener("click", () => {
 });
 
 //Search open and close
-document.getElementById("search_smallscreen").addEventListener("click", () => {
-  let menu = document.getElementById("dropdowns_small_screen");
-  let display = window.getComputedStyle(menu).display;
-  console.log(display);
-  if (display === "none" || display === "") {
-    menu.style.display = "block";
-  } else {
-    menu.style.display = "none";
-  }
-});
+document
+  .getElementById("search_smallscreen")
+  .addEventListener("click", (event) => {
+    event.stopPropagation();
+    let menu = document.getElementById("dropdowns_small_screen");
+    let display = window.getComputedStyle(menu).display;
+    console.log(display);
+    if (display === "none" || display === "") {
+      menu.style.display = "block";
+    } else {
+      menu.style.display = "none";
+    }
+  });
 
 document.getElementById("login1_smallscreen").addEventListener("click", () => {
   let menu = document.getElementById("popup_login");
@@ -330,20 +341,18 @@ if (
   document.getElementById("login2_bigscreen").style.display = "";
   document.getElementById("login1_smallscreen").style.display = "flex";
   document.getElementById("login2_smallscreen").style.display = "";
+  document.getElementById("mobile_username").textContent = "Login";
+  document.getElementById("logout_button_mobile").style.display = "";
 } else {
+  document.getElementById("mobile_username").textContent = userData.username;
   document.getElementById("user_dropdown_bigscreen").innerText =
     userData.username;
   document.getElementById("login1_bigscreen").style.display = "";
   document.getElementById("login2_bigscreen").style.display = "flex";
   document.getElementById("login1_smallscreen").style.display = "";
   document.getElementById("login2_smallscreen").style.display = "flex";
+  document.getElementById("logout_button_mobile").style.display = "block";
 }
-
-//to touch any where in the body all droupdowns should be gone
-
-// document.querySelector("body").addEventListener("click", () => {
-//   document.getElementById("login2_bigscreen_dropdown").style.display = "";
-// });
 
 // ------------------------- Login and signup functionality ------------------->>
 
@@ -357,6 +366,7 @@ import {
   signOut,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
+  signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -456,7 +466,9 @@ logout_bigscreen.addEventListener("click", () => {
     .then(() => {
       // Sign-out successful.
       console.log("logout done");
+      let name = userData.username;
       userData = {
+        username: name,
         login_status: "loggedOut",
       };
       document.getElementById("login2_bigscreen_dropdown").style.display = "";
@@ -471,12 +483,594 @@ logout_bigscreen.addEventListener("click", () => {
       console.log(error);
     });
 });
+document
+  .getElementById("logout_button_mobile")
+  .addEventListener("click", () => {
+    console.log("clicked");
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        console.log("logout done");
+        let name = userData.username;
 
+        userData = {
+          username: name,
+          login_status: "loggedOut",
+        };
+        document.getElementById("logout_button_mobile").style.display = "";
+        document.getElementById("login2_bigscreen_dropdown").style.display = "";
+        document.getElementById("login1_bigscreen").style.display = "flex";
+        document.getElementById("login2_bigscreen").style.display = "";
+        document.getElementById("login1_smallscreen").style.display = "flex";
+        document.getElementById("login2_smallscreen").style.display = "";
+        localStorage.setItem("userData", JSON.stringify(userData));
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  });
 // -------------------------google-------------------->>>
 
 const provider = new GoogleAuthProvider();
+document.getElementById("google_auth").addEventListener("click", () => {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+
+      userData = {
+        username: user.displayName,
+        login_status: "loggedIn",
+      };
+
+      login_screen.style.display = "";
+      document.getElementById("user_dropdown_bigscreen").innerText =
+        userData.username;
+      document.getElementById("login1_bigscreen").style.display = "";
+      document.getElementById("login2_bigscreen").style.display = "flex";
+      document.getElementById("login1_smallscreen").style.display = "";
+      document.getElementById("login2_smallscreen").style.display = "flex";
+      localStorage.setItem("userData", JSON.stringify(userData));
+      console.log(user);
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+});
 
 //Search functionality add product here by creating a div and append it
 let add_searched_product = document.getElementById("search_result_smallscreen");
+
+// -----------------------------search functionality ----------------------->>>
+let products = [
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/Aimage.webp",
+    name: "Lucky Bamboo Plant - 3 Layer",
+    price: "399",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/AtlantisPlanter-PastelBlue.webp",
+    name: "Peace Lily Plant",
+    price: "299",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/AtlantisPlanter-PastelPink.webp",
+    name: "Money Plant Golden",
+    price: "299",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/AtlantisPlanter-Teal_dc150664.webp",
+    name: "Snake Plant - Golden Hahnii",
+    price: "299",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/AtlantisPlanter-Teal.webp",
+    name: "Areca Palm Plant XL",
+    price: "2499",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/DSC_2431.webp",
+    name: "Areca Palm Plant",
+    price: "499",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/LagosPlanter-Mocca.webp",
+    name: "Syngonium Pink Plant",
+    price: "249",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/LagosPlanter-Grey.webp",
+    name: "Jade Plant Mini",
+    price: "249",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/small-atlantis.webp",
+    name: "Broken Heart Plant",
+    price: "249",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/SpiroCeramicPot-White.webp",
+    name: "Bamboo Palm Plant",
+    price: "399",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/Venice12Planter-Black.webp",
+    name: "Ficus Bonsai Plant",
+    price: "799",
+    category: "Houseplants",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/air-purifying-bundle.png",
+    name: "Areca Palm, Sansevieria Futura Superba",
+    price: "999",
+    category: "Houseplant Sets",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/air-purifying-bundle.webp",
+    name: "Syngonium Pink, Money N Joy",
+    price: "999",
+    category: "Houseplant Sets",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/sleep-better-bundle.webp",
+    name: "The Sleep Better Bundle",
+    price: "1299",
+    category: "Houseplant Sets",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/rubber-variegated-and-aglaonema-pink.webp",
+    name: "Rubber Variegated and Aglaonema Pink",
+    price: "1199",
+    category: "Houseplant Sets",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/zz-peace-lily.webp",
+    name: "ZZ, Peace Lily",
+    price: "999",
+    category: "Houseplant Sets",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/living-room-bundle.webp",
+    name: "The Living Room Bundle",
+    price: "1299",
+    category: "Houseplant Sets",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/tabletop-succulent-bundle.webp",
+    name: "The Tabletop Succulent Bundle",
+    price: "1599",
+    category: "Houseplant Sets",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/low-maintenance-bundle.webp",
+    name: "The Low Maintenance Bundle",
+    price: "1299",
+    category: "Houseplant Sets",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/sun-loving-succulent-bundle.webp",
+    name: "The Sun-loving Succulent Bundle",
+    price: "1499",
+    category: "Houseplant Sets",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/4-inch-set-of-6-gardening-pots.webp",
+    name: "The Sun-loving Succulent Bundle",
+    price: "1499",
+    category: "Flowerpot",
+    subcategory: "Plastic Pots",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/small-white-stone-pebble.webp",
+    name: "Pebble Planter",
+    price: "599",
+    category: "Flowerpot",
+    subcategory: "Plastic Pots",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/7.5-inch-set-of-5-multi-1.webp",
+    name: "Ugaoo Krish Self Watering Planter",
+    price: "149",
+    category: "Flowerpot",
+    subcategory: "Plastic Pots",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/DSC_5784.webp",
+    name: "Frosted Ceramic Pot",
+    price: "599",
+    category: "Flowerpot",
+    subcategory: "Ceramic Pots",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/rose-red-apple-ceramic-pot.webp",
+    name: "Apple Ceramic Pot",
+    price: "799",
+    category: "Flowerpot",
+    subcategory: "Ceramic Pots",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/AImageWithPlant-2.webp",
+    name: "Spiro Ceramic Pot",
+    price: "399",
+    category: "Flowerpot",
+    subcategory: "Ceramic Pots",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/hanging-pyramids-planter.webp",
+    name: "Hanging Pyramids Planter",
+    price: "1799",
+    category: "Flowerpot",
+    subcategory: "Metallic Pots",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/white-nyx-planter.webp",
+    name: "Nyx Planter",
+    price: "349",
+    category: "Flowerpot",
+    subcategory: "Metallic Pots",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/dove-planter.webp",
+    name: "Dove Planter",
+    price: "1999",
+    category: "Flowerpot",
+    subcategory: "Metallic Pots",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/5-kg-garden-soil-mix.webp",
+    name: "Garden Soil Mix",
+    price: "349",
+    category: "Soil",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/cocopeat-block.webp",
+    name: "Cocopeat Block",
+    price: "199",
+    category: "Soil",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/cactus-succulent-potting-mix-5-kg.webp",
+    name: "Cactus & Succulent Potting Mix - 5 kg",
+    price: "499",
+    category: "Soil",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/pot-o-mix-5-kg-potting-mix.webp",
+    name: "Pot-O-Mix - 5 Kg Potting Mix",
+    price: "399",
+    category: "Soil",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/garden_red_soil.webp",
+    name: "Garden Red Soil",
+    price: "199",
+    category: "Soil",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/5-kg-cow-manure.webp",
+    name: "Cow Manure",
+    price: "199",
+    category: "Fertilizer",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/5-kg-vermicompost.webp",
+    name: "Vermicompost",
+    price: "199",
+    category: "Fertilizer",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/organic-manure-1-kg.webp",
+    name: "Organic Manure - 1 Kg",
+    price: "199",
+    category: "Fertilizer",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/perlite-250gm.webp",
+    name: "Perlite - 250gm",
+    price: "199",
+    category: "Fertilizer",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/epsom-salt-1-kg.webp",
+    name: "Epsom Salt - 1 kg",
+    price: "199",
+    category: "Fertilizer",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/plant-fertilizer-pellets-1-kg.webp",
+    name: "Plant Fertilizer Pellets - 1 Kg",
+    price: "299",
+    category: "Fertilizer",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/organic-manure-1-kg.webp",
+    name: "Organic Manure - 1 Kg",
+    price: "199",
+    category: "Fertilizer",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/Plant_Tonic.webp",
+    name: "Seaweed Extract Fertilizer - Plant Tonic 250 ml",
+    price: "299",
+    category: "Fertilizer",
+  },
+  {
+    description:
+      "The bigger cousin of the beautiful peace lily, the Spathiphyllum Sensation is one of the most loved peace lily varieties in the world. In addition to its majestic white flowers, it has large, glossy, oblong leaves that are excellent air purifiers. The best part is its ease of growth and low-maintenance nature which makes it a perfect choice for first-time gardeners.",
+    care: "Always check your plants before watering, the topsoil should be dry to touch. For succulents allow the potting mix to dry completely before watering again.Place your plants on window sills where it can get the brightest possible indirect light. Bright indirect light is when the plant is within a couple of feet of a natural source of light.",
+    img: "./images/Plant_Tonic.webp",
+    name: "Seaweed Extract Fertilizer - Plant Tonic 100 ml",
+    price: "199",
+    category: "Fertilizer",
+  },
+];
+let input = document.querySelector("#search_bigscreen_input");
+
+function search(text, arr) {
+  let fil = arr.filter((ele) => {
+    let str = ele.name.toLowerCase();
+    return str.includes(text);
+  });
+  return fil;
+}
+let cartData = JSON.parse(localStorage.getItem("Current_Product")) || {};
+let debounce;
+input.addEventListener("input", (event) => {
+  clearTimeout(debounce);
+  debounce = setTimeout(() => {
+    event.stopPropagation();
+    let mainDiv = document.querySelector("#search_bigscreen_dropdown");
+    mainDiv.style.display = "block";
+    mainDiv.innerHTML = "";
+    let val = input.value.toLowerCase();
+    let arr = search(val, products);
+    let t = 0;
+    console.log(arr.length);
+    if (arr.length > 0) {
+      for (let ele of arr) {
+        t++;
+        if (t <= 4) {
+          let div = document.createElement("div");
+          div.innerText = ele.name;
+          div.addEventListener("click", () => {
+            cartData = ele;
+            localStorage.setItem("Current_Product", JSON.stringify(cartData));
+            //give the location of description page
+            window.location = "./index.html";
+          });
+          mainDiv.append(div);
+          console.log(ele);
+        } else {
+          break;
+        }
+      }
+    } else {
+      let div = document.createElement("div");
+      div.innerText = "No results...";
+      mainDiv.append(div);
+    }
+
+    // console.log();
+  }, 500);
+});
+// ---------------------------for mobile ------------------------>>
+let input_smallScreen = document.querySelector("#input_smallscreen");
+
+let debo;
+input_smallScreen.addEventListener("input", (event) => {
+  // event.stopPropagation();
+  clearTimeout(debounce);
+  debo = setTimeout(() => {
+    event.stopPropagation();
+    let mainDiv = document.querySelector("#search_result_smallscreen");
+    mainDiv.style.display = "block";
+    mainDiv.innerHTML = "";
+    let val = input_smallscreen.value.toLowerCase();
+    let arr = search(val, products);
+    let t = 0;
+    console.log(arr.length);
+    if (arr.length > 0) {
+      for (let ele of arr) {
+        t++;
+        if (t <= 4) {
+          let div = document.createElement("div");
+          div.innerText = ele.name;
+          div.addEventListener("click", () => {
+            cartData = ele;
+            localStorage.setItem("Current_Product", JSON.stringify(cartData));
+            //give the location of description page
+            window.location = "./index.html";
+          });
+          mainDiv.append(div);
+          console.log(ele);
+        } else {
+          break;
+        }
+      }
+    } else {
+      let div = document.createElement("div");
+      div.innerText = "No results...";
+      mainDiv.append(div);
+    }
+
+    // console.log();
+  }, 500);
+});
+
+//-------------------------------for not propogating--------------->>>
+const dropdownElement = document.querySelector("#search_bigscreen_dropdown");
+dropdownElement.addEventListener("click", function (event) {
+  // Prevent the click event from propagating to the document body
+  event.stopPropagation();
+});
+document
+  .querySelector("#dropdowns_small_screen")
+  .addEventListener("click", function (event) {
+    // Prevent the click event from propagating to the document body
+    event.stopPropagation();
+  });
+document
+  .querySelector("#search_result_smallscreen")
+  .addEventListener("click", function (event) {
+    // Prevent the click event from propagating to the document body
+    event.stopPropagation();
+  });
+
+document.body.addEventListener("click", function () {
+  // Hide the dropdown when clicking anywhere else on the body
+  dropdownElement.style.display = "none";
+  document.getElementById("login2_bigscreen_dropdown").style.display = "none";
+  document.querySelector("#dropdowns_small_screen").style.display = "none";
+  document.querySelector("#search_result_smallscreen").style.display = "none";
+});
 
 export { navbarBigscreen, navbarSmallscreen, loginScreen, signupScreen };
