@@ -44,7 +44,11 @@ let products = [
     {img:"./images/Plant_Tonic.webp",name:'Seaweed Extract Fertilizer - Plant Tonic 100 ml',price:'199',category:"Fertilizer"},
 ]
 let render=(data,start,till=6,type="notScroll")=>{
-    if(type!=="scroll")document.getElementById('products_container').innerHTML=''
+    if(type!=="scroll"){
+        console.log(type)
+        document.getElementById('products_container').innerHTML=''
+        console.log("emptied html")
+    }
     let end = start+till;
     for(start;start<end && start<data.length;start++){
         let el = data[start]
@@ -62,6 +66,10 @@ let render=(data,start,till=6,type="notScroll")=>{
                         </div>`
         let div = document.createElement('div')
         div.className='product_container'
+        div.onclick=()=>{
+            localStorage.setItem('Current_Product',JSON.stringify(el))
+            window.location.href='./Product_Detail_Page.html'
+        }
         div.style.borderRadius="25px"
         div.innerHTML = innerHTML
         document.getElementById('products_container').append(div)
