@@ -6,6 +6,7 @@
   overflow-y: auto;
   background-color: rgba(234, 238, 226, 0.7); /* Use rgba to set opacity */
   overflow: auto;
+  z-index: 100;
 }
 #popup_login > div {
   margin-top: 60px;
@@ -20,6 +21,7 @@
   overflow-y: auto;
   background-color: rgba(234, 238, 226, 0.7); /* Use rgba to set opacity */
   overflow: auto;
+  z-index: 100;
 }
 #popup_signup > div {
   margin-top: 59px;
@@ -42,7 +44,6 @@
   align-items: center;
 }
 .parent > div:nth-child(1) h2 {
-  text-wrap: nowrap;
   width: 90%;
 }
 .parent > div:nth-child(1) div {

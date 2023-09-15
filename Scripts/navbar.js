@@ -107,24 +107,32 @@ function navbarSmallscreen() {
     </div>
     <div id="search_result_smallscreen">
       <div>Product1</div>
-      <div>Product1</div>
-      <div>Product1</div>
     </div>
   </div>
   <div id="humburger_icon_menu">
     <div>
-      <div>
+      <div class="username_cart_mobile">
         <a href="./index.html" id="mobile_username">UserName</a>
-        <a href="#">Cart</a>
+        <a href="#">My Cart</a>
       </div>
+      
       <div>
+      <h4>Categories</h4>
+      <a href="#">Plants</a>
+      <a href="#">Seeds</a>
+      <a href="#">Pots & Planters</a>
+      <a href="#">Plant Care</a>
+     </div>
+     
+      <div>
+      <h4>Others</h4>
         <a href="#">Catalog</a>
         <a href="#">Sale</a>
         <a href="#">Delivery and Payment</a>
         <a href="#">Contact</a>
         <a href="#">About us</a>
       </div>
-      <div>
+      <div >
         <a href="./index.html" id="logout_button_mobile">Logout</a>
       </div>
     </div>
@@ -410,7 +418,7 @@ signup_by_email.addEventListener("click", () => {
       document.getElementById("login2_bigscreen").style.display = "flex";
       document.getElementById("login1_smallscreen").style.display = "";
       document.getElementById("login2_smallscreen").style.display = "flex";
-
+      document.getElementById("logout_button_mobile").style.display = "block";
       localStorage.setItem("userData", JSON.stringify(userData));
       console.log(user);
       // ...
@@ -446,6 +454,7 @@ signin_button.addEventListener("click", () => {
       document.getElementById("login2_bigscreen").style.display = "flex";
       document.getElementById("login1_smallscreen").style.display = "";
       document.getElementById("login2_smallscreen").style.display = "flex";
+      document.getElementById("logout_button_mobile").style.display = "block";
       localStorage.setItem("userData", JSON.stringify(userData));
       console.log(user);
       // ...
@@ -476,6 +485,7 @@ logout_bigscreen.addEventListener("click", () => {
       document.getElementById("login2_bigscreen").style.display = "";
       document.getElementById("login1_smallscreen").style.display = "flex";
       document.getElementById("login2_smallscreen").style.display = "";
+
       localStorage.setItem("userData", JSON.stringify(userData));
     })
     .catch((error) => {
@@ -534,6 +544,7 @@ document.getElementById("google_auth").addEventListener("click", () => {
       document.getElementById("login2_bigscreen").style.display = "flex";
       document.getElementById("login1_smallscreen").style.display = "";
       document.getElementById("login2_smallscreen").style.display = "flex";
+      document.getElementById("logout_button_mobile").style.display = "block";
       localStorage.setItem("userData", JSON.stringify(userData));
       console.log(user);
       // IdP data available using getAdditionalUserInfo(result)
