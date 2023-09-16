@@ -11,10 +11,15 @@
 }
 
 .footer {
+  margin: auto;
   padding: 30px 0 !important;
   display: grid;
   grid-template-columns: repeat(5,1fr);
-  gap: 50px;
+  gap: 25px;
+
+}
+.footer>*{
+  margin: 0 auto;
 }
 .footer_heading {
   font-family: "ClashDisplay SemiBold", sans-serif !important;
@@ -69,11 +74,11 @@
     .footer *{
       margin: auto;
     }
-            #scroll_2_top {
+    #scroll_2_top {
               position: absolute;
               left: 50%;
               transform: translateX(-50%);
-            }
+    }
             
 }
 @media screen and (max-width:720px) {
