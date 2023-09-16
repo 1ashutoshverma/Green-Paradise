@@ -1,11 +1,10 @@
 import { navbarBigscreen, navbarSmallscreen } from "../Scripts/navbar.js";
-
 import footer from "./components/footer/footer.js";
 import products, {
   render,
 } from "./components/product_container/product_container.js";
 import popularProducts, {
-  popularProductsRender,
+  popularProductsRender
 } from "./components/popular_products_container/popular_products_container.js";
 let body = document.querySelector("body");
 let i = 1;
@@ -136,10 +135,10 @@ prevPopProd.onclick = () => {
     nextPopProd.style.backgroundColor = "#486e00";
   }
 };
+let addContainers;
 window.onload = () => {
   start = render(products, 0);
   popStart = popularProductsRender(popStart, 3);
-  console.log(popStart);
 };
 prevPopProd.disabled = true;
 prevPopProd.style.backgroundColor = "lightgray";
