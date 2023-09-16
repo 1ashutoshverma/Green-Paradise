@@ -135,7 +135,6 @@ prevPopProd.onclick = () => {
     nextPopProd.style.backgroundColor = "#486e00";
   }
 };
-let addContainers;
 window.onload = () => {
   start = render(products, 0);
   popStart = popularProductsRender(popStart, 3);
