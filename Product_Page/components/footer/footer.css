@@ -6,18 +6,15 @@
   font-family: "ClashDisplay Regular" !important;
   src: url("./fonts/ClashDisplay-Regular.otf") format("opentype") !important;
 }
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
-
 #footer_col1 {
   display: flex !important;
 }
 
 .footer {
   padding: 30px 0 !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-  flex-direction: row !important;
-  justify-content: space-around !important;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 50px;
 }
 .footer_heading {
   font-family: "ClashDisplay SemiBold", sans-serif !important;
@@ -39,7 +36,6 @@
 }
 
 #scroll_2_top {
-  align-self: center !important;
   background-color: #486d00 !important;
   color: white !important;
   padding: 10px !important;
@@ -59,10 +55,39 @@
 }
 #col1_buttons {
   display: flex !important;
-  margin-top: -15px !important;
   padding-bottom: 10px !important;
   width: 33% !important;
   height: 25px !important;
   align-items: center !important;
-  justify-content: space-around !important;
+}
+
+@media screen and (max-width:1080px) {
+  .footer {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    .footer *{
+      margin: auto;
+    }
+            #scroll_2_top {
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+            
+}
+@media screen and (max-width:720px) {
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+  }
+    #scroll_2_top {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+            .footer * {
+              margin: auto;
+            }
 }

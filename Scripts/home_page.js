@@ -1,3 +1,39 @@
 import { navbarBigscreen, navbarSmallscreen } from "./navbar.js";
 import footer from "../Product_Page/components/footer/footer.js";
 document.getElementById("footer").innerHTML = footer();
+import popularProducts, {
+  popularProductsRender
+} from "../Product_Page/components/popular_products_container/popular_products_container.js";
+let nextPopProd = document.getElementById("next_popular_product");
+let prevPopProd = document.getElementById("prev_popular_product");
+
+let popStart = 0;
+
+nextPopProd.onclick = () => {
+  popStart = popularProductsRender(popStart, 3);
+  if (popStart >= popularProducts.length) {
+    nextPopProd.disabled = true;
+    nextPopProd.style.backgroundColor = "lightgray";
+  }
+  if (popStart > 0) {
+    prevPopProd.disabled = false;
+    prevPopProd.style.backgroundColor = "#486e00";
+  }
+};
+
+prevPopProd.onclick = () => {
+  popStart = popularProductsRender(popStart - 6, 3);
+  if (popStart == 0 || popStart == 3) {
+    prevPopProd.disabled = true;
+    prevPopProd.style.backgroundColor = "lightgray";
+  }
+  if (popStart < popularProducts.length) {
+    nextPopProd.disabled = false;
+    nextPopProd.style.backgroundColor = "#486e00";
+  }
+};
+window.onload = () => {
+  popStart = popularProductsRender(popStart, 3);
+};
+prevPopProd.disabled = true;
+prevPopProd.style.backgroundColor = "lightgray";
