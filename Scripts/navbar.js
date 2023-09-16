@@ -178,10 +178,11 @@ function loginScreen() {
       <button class="ls_btn" type="submit" id="signin_button">SIGN IN</button>
     </div>
   </form>
-  <a href="" style="margin-top: 10px; text-decoration: none; color: black"
-    >FORGOT YOUR PASSWORD?</a
-  ><br />
-  <p id="go_to_from_login" class="buttons_log">Sign up</p>
+  <a id="forget_password" href=""
+    >Forgot password?</a
+  >
+  
+  <p id="account_create">New here?<span id="go_to_from_login" class="buttons_log"> Create an account</span></p>
 </div>`;
 }
 
