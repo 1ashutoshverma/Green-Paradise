@@ -973,6 +973,8 @@ function search(text, arr) {
   });
   return fil;
 }
+
+
 let cartData = JSON.parse(localStorage.getItem("Current_Product")) || {};
 let debounce;
 input.addEventListener("input", (event) => {
