@@ -119,11 +119,14 @@ h1 {
 }
 #images {
   display: flex;
-  width: 100%;
   justify-content: center;
+  align-items: center;
+}
+#images img {
+  width: 100%;
 }
 
-#images > img {
+/* #images > img {
   width: 100px;
   margin: 0;
   padding: 0;
@@ -131,7 +134,7 @@ h1 {
 #images > #fb {
   height: 85px;
   width: 85px;
-}
+} */
 .buttons_log:hover {
   cursor: pointer;
 }

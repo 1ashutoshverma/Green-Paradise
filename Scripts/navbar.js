@@ -150,15 +150,12 @@ function loginScreen() {
   </div>
   <h5 id="login" class="h2" tabindex="-1">Welcome back! Sign in with</h5>
   <div id="images">
-    <img
-      id="fb"
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRztMLZ5RO6EhrIJrzmBK2Kh2tLmsroesf87g&usqp=CAU"
-      alt=""
-    />
-    <img id="google_auth"
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNwtv-SfCJADd7ibbG64VkJgYgGHf_68mojA&usqp=CAU"
-      alt=""
-    />
+  <div>
+      <img id="fb" src="./Images/navbar_images/facebook.png" alt="" />
+    </div>
+    <div>
+      <img id="google_auth" src="./Images/navbar_images/google.webp" alt="" />
+    </div>
   </div>
   <form id="form1" class="form">
     <div class="child">
