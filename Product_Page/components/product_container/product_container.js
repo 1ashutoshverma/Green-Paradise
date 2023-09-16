@@ -139,7 +139,7 @@ let render = (data, start, till = 6, type = "notScroll") => {
 
         div.onclick = () => {
             localStorage.setItem('Current_Product', JSON.stringify(el));
-            setTimeout(() => { window.location.href = './Product_Detail_Page.html' }, 1000);
+            window.location.href = './Product_Detail_Page.html'
         }
 
         productsContainer.appendChild(div);
