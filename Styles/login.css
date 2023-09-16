@@ -81,7 +81,7 @@
   border-radius: 4px;
 }
 
-#popup_login,#popup_signup button {
+.ls_btn {
   width: 97%;
   color: azure;
   padding: 10px;
