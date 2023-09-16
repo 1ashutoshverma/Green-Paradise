@@ -24,7 +24,6 @@
 #content{
     display: flex;
     justify-content: space-between;
-
     gap: 50px;
 }
 #filters_sort{
