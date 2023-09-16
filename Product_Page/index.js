@@ -1,16 +1,15 @@
 import { navbarBigscreen, navbarSmallscreen } from "../Scripts/navbar.js";
-
 import footer from "./components/footer/footer.js";
 import products, {
   render,
 } from "./components/product_container/product_container.js";
 import popularProducts, {
-  popularProductsRender,
+  popularProductsRender
 } from "./components/popular_products_container/popular_products_container.js";
 let body = document.querySelector("body");
 let i = 1;
 window.onscroll = () => {
-  if (Math.ceil(window.scrollY) > i * 800) {
+  if (Math.ceil(window.scrollY) > i * 700) {
     console.log(Math.ceil(window.scrollY));
     start = render(data, start, 6, "scroll");
     i++;
@@ -28,24 +27,28 @@ houseplantFilter.onchange = () => {
   houseplants = !houseplants;
   data = sortNfilter();
   start = render(data, 0);
+  i=1;
 };
 
 let priceRangeFilter = document.getElementById("price_range_filter");
 priceRangeFilter.onchange = () => {
   data = sortNfilter();
   start = render(data, 0);
+  i=1;
 };
 let houseplantSetsFilter = document.getElementById("houseplant_set_filter");
 houseplantSetsFilter.onchange = () => {
   houseplant_sets = !houseplant_sets;
   data = sortNfilter();
   start = render(data, 0);
+  i=1;
 };
 let flowerpotFilter = document.getElementById("flowerpot_filter");
 flowerpotFilter.onchange = () => {
   flowerpots = !flowerpots;
   data = sortNfilter();
   start = render(data, 0);
+  i=1;
 };
 let soilFertilizerFilter = document.getElementById(
   "soil_and_fertilizers_filter"
@@ -54,11 +57,13 @@ soilFertilizerFilter.onchange = () => {
   soil_fertilizers = !soil_fertilizers;
   data = sortNfilter();
   start = render(data, 0);
+  i=1;
 };
 let sorting = document.getElementById("sorting");
 sorting.onchange = () => {
   data = sortNfilter();
   start = render(data, 0);
+  i=1;
 };
 document.getElementById("reset_filters").onclick = () => {
   if (houseplants) houseplantFilter.click();
@@ -130,10 +135,10 @@ prevPopProd.onclick = () => {
     nextPopProd.style.backgroundColor = "#486e00";
   }
 };
+let addContainers;
 window.onload = () => {
   start = render(products, 0);
   popStart = popularProductsRender(popStart, 3);
-  console.log(popStart);
 };
 prevPopProd.disabled = true;
 prevPopProd.style.backgroundColor = "lightgray";

@@ -178,7 +178,7 @@ function loginScreen() {
     </div>
 
     <div class="child">
-      <button type="submit" id="signin_button">SIGN IN</button>
+      <button class="ls_btn" type="submit" id="signin_button">SIGN IN</button>
     </div>
   </form>
   <a href="" style="margin-top: 10px; text-decoration: none; color: black"
@@ -226,7 +226,7 @@ function signupScreen() {
     </div>
 
     <div class="child">
-      <button type="submit" id="signup_by_email">CONTINUE</button>
+      <button class="ls_btn" type="submit" id="signup_by_email">CONTINUE</button>
     </div>
     <p id="go_to_from_sign_up" class="buttons_log">Login</p>
   </form>
