@@ -14,7 +14,7 @@
     margin-bottom: 30px;
 }
 #heading {
-    font-family: "ClashDisplay SemiBold", sans-serif;
+    font-family: "ClashDisplay SemiBold", sans-serif !important;
     font-size: 32px !important;
     color: #486e00;
     margin: 0;
@@ -58,7 +58,7 @@
     height: 50vh;
 }
 #popularProducts_head img {
-    width: 420px;
+    width: 400px;
 }
 
 #popularProducts_head button {

@@ -13,6 +13,9 @@
 }
 
 /* ------------------first tile ---------------------- */
+#heading{
+  font-family: "ClashDisplay SemiBold",sans-serif;
+}
 #first_tile {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
