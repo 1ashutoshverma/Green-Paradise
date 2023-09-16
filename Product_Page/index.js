@@ -139,5 +139,9 @@ window.onload = () => {
   start = render(products, 0);
   popStart = popularProductsRender("./",popStart, 3);
 };
+for(let elem of document.getElementsByClassName('catalog_link')){
+  elem.disabled=true;
+  elem.style.color="darkgray"
+}
 prevPopProd.disabled = true;
 prevPopProd.style.backgroundColor = "lightgray";

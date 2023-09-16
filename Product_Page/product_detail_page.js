@@ -67,3 +67,7 @@ addButton.onclick=()=>{
     addButton.disabled=false
   },750)
 }
+document.getElementById('catalog_link').onclick=()=>{
+  console.log("catalog_link")
+  window.location.assign('./index.html')
+}

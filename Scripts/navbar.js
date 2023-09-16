@@ -9,7 +9,7 @@ function navbarBigscreen() {
       <a href="index.html">Green paradise</a>
     </div>
     <div id="middle_bigscreen">
-      <a href="./Product_Page/index.html">Catalog</a>
+      <a href="#" class="catalog_link">Catalog</a>
       <a href="#">Sale</a>
       <a href="#">Delivery and payment</a>
       <a href="#">Contact</a>
@@ -126,7 +126,7 @@ function navbarSmallscreen() {
      
       <div>
       <h4>Others</h4>
-        <a href="./Product_Page/index.html">Catalog</a>
+        <a href="#" class="catalog_link">Catalog</a>
         <a href="#">Sale</a>
         <a href="#">Delivery and Payment</a>
         <a href="#">Contact</a>
