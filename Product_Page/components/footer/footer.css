@@ -6,7 +6,6 @@
   font-family: "ClashDisplay Regular" !important;
   src: url("./fonts/ClashDisplay-Regular.otf") format("opentype") !important;
 }
-
 #footer_col1 {
   display: flex !important;
 }
