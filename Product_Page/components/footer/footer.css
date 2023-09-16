@@ -37,7 +37,6 @@
 }
 
 #scroll_2_top {
-  align-self: center !important;
   background-color: #486d00 !important;
   color: white !important;
   padding: 10px !important;
@@ -71,13 +70,24 @@
     .footer *{
       margin: auto;
     }
+            #scroll_2_top {
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+            }
             
 }
 @media screen and (max-width:720px) {
   .footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+
   }
+    #scroll_2_top {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
             .footer * {
               margin: auto;
             }

@@ -24,6 +24,7 @@
 #content{
     display: flex;
     justify-content: space-between;
+
     gap: 50px;
 }
 #filters_sort{
@@ -120,7 +121,19 @@ footer *{
     #product_container{
         width: 30vw;
     }
-    
+    #content{
+        display: flex;
+        flex-direction: column;
+    } 
+    #filters {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 12px;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
 }
 @media screen and (max-width:720px) {
     #body {
@@ -134,5 +147,8 @@ footer *{
     }
     #product_container {
         width: 50vw;
+    }
+    #content{
+        flex-direction: column;
     }
 }
