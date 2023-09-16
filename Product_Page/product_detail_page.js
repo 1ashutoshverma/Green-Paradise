@@ -19,7 +19,7 @@ let prevPopProd = document.getElementById("prev_popular_product");
 let popStart = 0;
 
 nextPopProd.onclick = () => {
-  popStart = popularProductsRender(popStart, 3);
+  popStart = popularProductsRender("",popStart, 3);
   if (popStart >= popularProducts.length) {
     nextPopProd.disabled = true;
     nextPopProd.style.backgroundColor = "lightgray";
@@ -31,7 +31,7 @@ nextPopProd.onclick = () => {
 };
 
 prevPopProd.onclick = () => {
-  popStart = popularProductsRender(popStart - 6, 3);
+  popStart = popularProductsRender("",popStart - 6, 3);
   if (popStart == 0 || popStart == 3) {
     prevPopProd.disabled = true;
     prevPopProd.style.backgroundColor = "lightgray";
@@ -42,7 +42,7 @@ prevPopProd.onclick = () => {
   }
 };
 window.onload = () => {
-  popStart = popularProductsRender(popStart, 3);
+  popStart = popularProductsRender("",popStart, 3);
 };
 prevPopProd.disabled = true;
 prevPopProd.style.backgroundColor = "lightgray";

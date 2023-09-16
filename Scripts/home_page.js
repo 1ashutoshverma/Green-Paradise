@@ -33,7 +33,7 @@ prevPopProd.onclick = () => {
   }
 };
 window.onload = () => {
-  popStart = popularProductsRender("./Product_Page",popStart, 3);
+  popStart = popularProductsRender("./Product_Page/",popStart, 3);
 };
 prevPopProd.disabled = true;
 prevPopProd.style.backgroundColor = "lightgray";

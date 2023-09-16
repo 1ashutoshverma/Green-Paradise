@@ -130,7 +130,7 @@ let popularProductsRender=(pre="",start=0,till=3)=>{
 
         div.onclick = () => {
             localStorage.setItem('Current_Product', JSON.stringify(el));
-            window.location.href = `${pre + '/Product_Detail_Page.html'}`
+            window.location.href = `${pre}Product_Detail_Page.html`
         }
 
         document.getElementById('popularProducts_body').appendChild(div);

@@ -12,10 +12,10 @@
 #body{
     position: relative;
     left: 50%;
+    padding: 0 40px;
     transform: translateX(-50%);
     font-family: "ClashDisplay Regular",sans-serif;
     background-color: #fffef8;
-    width: 85vw;
 }
 
 #body>*{
@@ -143,9 +143,6 @@ footer *{
     }
     #products_container {
         grid-template-columns: repeat(1, 1fr);
-    }
-    #product_container {
-        width: 50vw;
     }
     #content{
         flex-direction: column;
