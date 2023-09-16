@@ -1,5 +1,15 @@
-body {
-  font-family: "Roboto", sans-serif;
+@font-face {
+  font-family: "ClashDisplay SemiBold";
+  src: url("../Product_Page/fonts/ClashDisplay-Semibold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "ClashDisplay Regular";
+  src: url("../Product_Page/fonts/ClashDisplay-Regular.otf") format("opentype");
+}
+
+* {
+  font-family: "ClashDisplay Regular", sans-serif;
 }
 
 /* ------------------first tile ---------------------- */
@@ -13,6 +23,10 @@ body {
 
 #first_tile img {
   width: 100%;
+}
+.footer{
+  width: 90vw;
+  margin: auto;
 }
 
 #first_tile > div:nth-child(1) {
