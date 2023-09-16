@@ -103,7 +103,7 @@ function navbarSmallscreen() {
   <!-- drop downs for small screen -->
   <div id="dropdowns_small_screen">
     <div>
-      <input type="text" placeholder="Search..." id="input_smallscreen"/>
+      <input type="text" placeholder="Search for plants, seeds and products etc..." id="input_smallscreen"/>
     </div>
     <div id="search_result_smallscreen">
       <div>Product1</div>
@@ -112,7 +112,7 @@ function navbarSmallscreen() {
   <div id="humburger_icon_menu">
     <div>
       <div class="username_cart_mobile">
-        <a href="./index.html" id="mobile_username">UserName</a>
+        <a href="#" id="mobile_username">UserName</a>
         <a href="#">My Cart</a>
       </div>
       
@@ -132,8 +132,8 @@ function navbarSmallscreen() {
         <a href="#">Contact</a>
         <a href="#">About us</a>
       </div>
-      <div >
-        <a href="./index.html" id="logout_button_mobile">Logout</a>
+      <div id="logout_button_mobile">
+        <a href="#" >Logout</a>
       </div>
     </div>
   </div>`;
@@ -361,6 +361,16 @@ if (
   document.getElementById("login2_smallscreen").style.display = "flex";
   document.getElementById("logout_button_mobile").style.display = "block";
 }
+//--------------------------- Username click fix ------------------------------->>
+let username_mobile = document.querySelector("#mobile_username");
+username_mobile.addEventListener("click", () => {
+  if (username_mobile.textContent == "Login") {
+    let menu = document.getElementById("popup_login");
+    menu.style.display = "flex";
+  } else {
+    window.location = "./index.html";
+  }
+});
 
 // ------------------------- Login and signup functionality ------------------->>
 
@@ -414,6 +424,8 @@ signup_by_email.addEventListener("click", () => {
       signup_screen.style.display = "";
       document.getElementById("user_dropdown_bigscreen").innerText =
         userData.username;
+      document.getElementById("mobile_username").textContent =
+        userData.username;
       document.getElementById("login1_bigscreen").style.display = "";
       document.getElementById("login2_bigscreen").style.display = "flex";
       document.getElementById("login1_smallscreen").style.display = "";
@@ -450,6 +462,8 @@ signin_button.addEventListener("click", () => {
       login_screen.style.display = "";
       document.getElementById("user_dropdown_bigscreen").innerText =
         userData.username;
+      document.getElementById("mobile_username").textContent =
+        userData.username;
       document.getElementById("login1_bigscreen").style.display = "";
       document.getElementById("login2_bigscreen").style.display = "flex";
       document.getElementById("login1_smallscreen").style.display = "";
@@ -480,6 +494,7 @@ logout_bigscreen.addEventListener("click", () => {
         username: name,
         login_status: "loggedOut",
       };
+      document.getElementById("mobile_username").textContent = "Login";
       document.getElementById("login2_bigscreen_dropdown").style.display = "";
       document.getElementById("login1_bigscreen").style.display = "flex";
       document.getElementById("login2_bigscreen").style.display = "";
@@ -493,6 +508,7 @@ logout_bigscreen.addEventListener("click", () => {
       console.log(error);
     });
 });
+
 document
   .getElementById("logout_button_mobile")
   .addEventListener("click", () => {
@@ -507,6 +523,7 @@ document
           username: name,
           login_status: "loggedOut",
         };
+        document.getElementById("mobile_username").textContent = "Login";
         document.getElementById("logout_button_mobile").style.display = "";
         document.getElementById("login2_bigscreen_dropdown").style.display = "";
         document.getElementById("login1_bigscreen").style.display = "flex";
@@ -539,6 +556,8 @@ document.getElementById("google_auth").addEventListener("click", () => {
 
       login_screen.style.display = "";
       document.getElementById("user_dropdown_bigscreen").innerText =
+        userData.username;
+      document.getElementById("mobile_username").textContent =
         userData.username;
       document.getElementById("login1_bigscreen").style.display = "";
       document.getElementById("login2_bigscreen").style.display = "flex";
@@ -973,7 +992,6 @@ function search(text, arr) {
   });
   return fil;
 }
-
 
 let cartData = JSON.parse(localStorage.getItem("Current_Product")) || {};
 let debounce;

@@ -20,8 +20,8 @@ body {
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 /* logo part */
@@ -136,6 +136,9 @@ body {
   margin-left: 72%;
   width: 18.7%;
   z-index: 100;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 15px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 #search_bigscreen_dropdown div {
   padding: 8px;
@@ -143,6 +146,8 @@ body {
 #search_bigscreen_dropdown div:hover {
   background-color: #f3f0f0;
   cursor: pointer;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 #login2_bigscreen_dropdown {
@@ -258,16 +263,19 @@ body {
   background-color: white;
   margin: auto;
   padding: 0px 10px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
   display: block;
   display: none;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 10px 15px;
 }
 
 #search_result_smallscreen > div {
   width: 90%;
   margin: auto;
   padding: 8px 0px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 #search_result_smallscreen > div:hover {
@@ -287,14 +295,12 @@ body {
 }
 #humburger_icon_menu > div {
   background-color: white;
-  width: 35%;
-  height: calc(100vh - 60px);
+  width: 40%;
+  height: calc(100vh - 57px);
   overflow: auto;
   display: flex;
   flex-direction: column;
-  /* border: 1px solid red; */
-  /* justify-content: space-evenly; */
-  gap: 25px;
+  gap: 20px;
 }
 
 #humburger_icon_menu > div::-webkit-scrollbar {
@@ -320,16 +326,17 @@ body {
   font-size: large;
   font-weight: 500;
 }
+
 #humburger_icon_menu > div > div:nth-child(2) {
   display: flex;
   flex-direction: column;
   background-color: #f5f4f4;
-
-  /* padding-left: 5px; */
   padding: 15px;
 }
+
 #humburger_icon_menu h4 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  margin: 10px 0px;
   color: #486e00;
 }
 #humburger_icon_menu > div > div:nth-child(3) {
@@ -345,6 +352,7 @@ body {
 
   flex-direction: column;
   background-color: #f5f4f4;
+  display: none;
   padding: 15px;
   font-size: larger;
   font-weight: 500;
@@ -361,9 +369,6 @@ body {
 
 #humburger_icon_menu a:hover {
   color: #a8a6a6;
-}
-#logout_button_mobile {
-  display: none;
 }
 
 @media screen and (width>750px) {
@@ -418,5 +423,8 @@ body {
     width: 1.1rem;
     height: 1.1rem;
     font-size: 0.9rem;
+  }
+  #humburger_icon_menu h4 {
+    font-size: 1.2rem;
   }
 }
