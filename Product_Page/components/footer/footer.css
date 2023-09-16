@@ -6,8 +6,7 @@
   font-family: "ClashDisplay Regular" !important;
   src: url("./fonts/ClashDisplay-Regular.otf") format("opentype") !important;
 }
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap")
-!important;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
 
 #footer_col1 {
   display: flex !important;
