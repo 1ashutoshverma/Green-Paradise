@@ -1,8 +1,23 @@
+@font-face {
+    font-family: "ClashDisplay SemiBold";
+    src: url("../../fonts/ClashDisplay-Semibold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "ClashDisplay Regular";
+    src: url("../../fonts/ClashDisplay-Regular.otf") format("opentype");
+}
 #popularProducts_body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
     margin-bottom: 30px;
+}
+#heading {
+    font-family: "ClashDisplay SemiBold", sans-serif;
+    font-size: 32px !important;
+    color: #486e00;
+    margin: 0;
 }
 #popularProducts_body img{
     width: 100%;
