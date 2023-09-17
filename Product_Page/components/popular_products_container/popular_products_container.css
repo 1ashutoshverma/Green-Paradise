@@ -8,10 +8,15 @@
   src: url("../../fonts/ClashDisplay-Regular.otf") format("opentype");
 }
 #popularProducts_body {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
-  margin-bottom: 30px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 30px;
+
+}
+#popularProducts_body>div{
+    height: 70vh;
 }
 #heading {
   font-family: "ClashDisplay SemiBold", sans-serif !important;
@@ -33,14 +38,10 @@
 #popularProducts_head h2 {
   margin: 0;
 }
-#products_container {
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
+
 .product_container {
-  background-color: #fdfce2;
+    background-color: #fdfce2;
+
 }
 .product_img_container {
   position: relative;
@@ -61,36 +62,42 @@
 }
 
 #popularProducts_head button {
-  border-radius: 100%;
-  padding: 8px 11px;
-  border: none;
-  margin: 10px;
-  background-color: #486e00;
-}
-@media screen and (max-width: 1200px) {
-  #popularProducts_head img {
-    width: 400px;
-  }
 
-  #popularProducts_body {
-    grid-template-columns: repeat(2, 1fr);
-    gap: auto;
-  }
-  #products_container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  #popularProducts_body img {
-    /* height: 50vh; */
-  }
+
+
+    border-radius: 100%;
+    padding: 8px 11px;
+    border: none;
+    margin: 10px;
+    background-color: #486e00;
 }
-@media screen and (max-width: 800px) {
-  #popularProducts_body {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
-    width: 80%;
-    margin: auto;
-  }
-  #products_container {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media screen and (max-width:1200px) {
+    #popularProducts_head img {
+            width: 400px;
+    }
+    #popularProducts_body>div {
+            height: 70vh;
+    }
+    #popularProducts_body {
+            grid-template-columns: repeat(2, 1fr);
+            gap: auto;
+    }
+    #products_container {
+            grid-template-columns: repeat(2, 1fr);
+    }
+    #popularProducts_body img {
+            height: 50vh;
+    }
 }
+@media screen and (max-width:800px) {
+    #popularProducts_body {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 80%;
+        margin: auto;
+    }
+    #products_container {
+            grid-template-columns: repeat(2, 1fr);
+    }
+}
+
