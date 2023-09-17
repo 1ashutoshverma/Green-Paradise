@@ -9,9 +9,12 @@
 }
 #popularProducts_body {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
     margin-bottom: 30px;
+}
+#popularProducts_body>div{
+    height: 70vh;
 }
 #heading {
     font-family: "ClashDisplay SemiBold", sans-serif !important;
@@ -33,15 +36,8 @@
 #popularProducts_head h2 {
     margin: 0;
 }
-#products_container {
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
 .product_container {
     background-color: #fdfce2;
-    
 }
 .product_img_container {
     position: relative;
@@ -72,7 +68,9 @@
     #popularProducts_head img {
             width: 400px;
     }
-    
+    #popularProducts_body>div {
+            height: 70vh;
+    }
     #popularProducts_body {
             grid-template-columns: repeat(2, 1fr);
             gap: auto;
@@ -86,7 +84,7 @@
 }
 @media screen and (max-width:800px) {
     #popularProducts_body {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
         width: 80%;
         margin: auto;

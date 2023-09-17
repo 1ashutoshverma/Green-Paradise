@@ -1,17 +1,5 @@
 let products = [
   {
-    img: "./images/Aimage.webp",
-    name: "Lucky Bamboo Plant - 3 Layer",
-    price: "399",
-    category: "Houseplants",
-  },
-  {
-    img: "./images/AtlantisPlanter-PastelBlue.webp",
-    name: "Peace Lily Plant",
-    price: "299",
-    category: "Houseplants",
-  },
-  {
     img: "./images/AtlantisPlanter-PastelPink.webp",
     name: "Money Plant Golden",
     price: "299",
@@ -261,9 +249,9 @@ let products = [
     category: "Fertilizer",
   },
 ];
-let popularProductsRender = (pre = "", start = 0, till = 3) => {
+let popularProductsRender = (pre = "", start = 0) => {
   document.getElementById("popularProducts_body").innerHTML = "";
-  let end = start + till;
+  let end = start + 4;
   for (start; start < end && start < products.length; start++) {
     let el = products[start];
     let div = document.createElement("div");
