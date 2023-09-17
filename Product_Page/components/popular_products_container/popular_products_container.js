@@ -344,6 +344,13 @@ let popularProductsRender = (pre = "", start = 0, till = 3) => {
       });
       curr.qty = 1;
       if (!alreadyPresent) cart.push(curr);
+      let qty = document.getElementById("quantity_bigscreen");
+      let netqty = 0;
+      cart.forEach((ele) => {
+        netqty = netqty + Number(ele.qty);
+        document.getElementById("quantity_smallscreen").textContent = netqty;
+        qty.textContent = netqty;
+      });
       localStorage.setItem("cart", JSON.stringify(cart));
       setTimeout(() => {
         svgContainers.innerHTML = innerHTML;
