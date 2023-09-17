@@ -11,7 +11,7 @@ let i = 1,throttler = false;
 window.onscroll = () => {
   if(throttler)return;
   throttler=true;
-  setTimeout(()=>{throttler=false},750)
+  setTimeout(()=>{throttler=false},600)
   if (Math.ceil(window.scrollY) > i * 700) {
     console.log(Math.ceil(window.scrollY));
     start = render(data, start, 6, "scroll");
@@ -75,7 +75,7 @@ document.getElementById("reset_filters").onclick = () => {
   if (soil_fertilizers) soilFertilizerFilter.click();
   priceRangeFilter.value = 2500;
   data = sortNfilter();
-  start = render(products, 0);
+  start = render(data, 0);
 };
 let sortNfilter = () => {
   let filtered = productFilter();
