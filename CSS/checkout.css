@@ -148,23 +148,110 @@ h1,h3{
 }
 #itemDetails>div{
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
 }
+
+
 #itemDetails > div img{
-  width: 25%;
- 
+  width: 25%; 
 }
 
-#kkrightcontent >div{
- 
-}
-
-#kkrightcontent ~div {
- 
+/* #kkrightcontent div {
+ display: flex;
+ justify-content: space-between;
   border: 1px solid red;
   margin-top: 25px;
+} */
+
+.itemPricing{
+  display: flex;
+  justify-content: space-between;
+}
+
+#quantityBox{
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#quantityBox div{
+  border: 1px solid red;
+  justify-content: space-around
+}
+
+.minus{
+ border-radius: 5px;
+  border: none;
+  background-color: green;
+  color: white;
+  padding: 3px;
+}
+
+.plus{
+  
+    border-radius: 5px;
+     border: none;
+     background-color: green;
+     color: white;
+     padding: 3px;
+  
+}
+
+
+body {
+  font-size: 16px;
  
 }
 
-#deliveryCharge{
- 
+
+@media screen and (max-width: 1190px) {
+  body {
+      font-size: 14px; 
+  }
+  #kkcontainer{
+    width: 90%;
+    margin: auto;
+    display: flex;
+   flex-direction: column-reverse;
+   justify-content:space-evenly;
+  }
+  input{
+    border-radius: 8px;
+   border: 2px solid grey;
+   padding: 3px;
+   width: 100%;
+   display: grid;
+   gap: 20px;
+   margin-top: 20px;
+  }
+  .kkbuttons{
+    display: flex;
+    flex-direction: column;
+  }
+  #indian-states {
+    border-radius: 8px;
+    border: 2px solid grey;
+    padding: 3px;
+    width: 101%;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+      font-size: 12px; 
+      #kkcontainer{
+        width: 90%;
+        margin: auto;
+        display: flex;
+       flex-direction: column-reverse;
+       justify-content:space-evenly;
+      }
+  }
+  .kkbuttons{
+    display: flex;
+    flex-direction: column;
+  }
 }

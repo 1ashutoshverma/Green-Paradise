@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/checkout.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
   
@@ -18,23 +17,26 @@
   </div>
  
   <div id="kkcontainer">
+    
     <div class="kkleft">
       <div class="kkleftUp">
         <h1>Check out</h1>
         <img class="kkcontImg" src="../images/wave.png" alt="">
       </div>
+    
      <div id="kkpersonalInfoCont">
       <h3>Personal Info</h3>
       <div class="kkinputfields">
         <div class="kkinputname">
-          <input type="text" placeholder="Firstname" >
-          <input type="text" placeholder="Lastname">
+          <input type="text" placeholder="Firstname" required>
+          <input type="text" placeholder="Lastname" required>
         </div>
         <div class="kkdetails">
-          <input type="number"  placeholder="Number">
-          <input type="text" placeholder="email">
+          <input type="number"  placeholder="Number" required>
+          <input type="text" placeholder="email" required>
         </div>
       </div>
+   
       <!-- <div class="kkbelow">
         <h4>Add a comment to the order</h4> 
         <div id="">
@@ -52,11 +54,12 @@
         <button id="kkcont">Continue</button>
       </div>
      </div>
+    
      
 
       <div id="kkdelivery">
         <h3>Delivery Address</h3>
-        <input type="text" placeholder="Country" >
+        <input type="text" placeholder="Country" required>
         <select id="indian-states">
           <option value="">Select State</option>
           <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -90,22 +93,23 @@
       </select>
       
       <div class="kkcity">
-        <input type="text" placeholder="City" >
-      <input type="number" placeholder="PIN">
+        <input type="text" placeholder="City" required>
+      <input type="number" placeholder="PIN" required>
       </div>
 
         <div class="kkbuttons">
-          <button id="kkbackbtn">Go Back</button>
-          <button id="kkpaybtn">Proceed to Pay</button>
+          <button id="kkbackbtn" type="submit">Go Back</button>
+          <button id="kkpaybtn" type="submit">Proceed to Pay</button>
         </div>       
       </div>
-    
+   
 
       <!-- <div class="kkpay">
         <button id="kkpaybtn">Proceed to Pay</button>
       </div> -->
 
     </div>
+  
 
 
     <div class="kkright">
@@ -122,9 +126,17 @@
           </div>          
       </div>
       <div class="itemPricing">
-        <p>Sale </p>
-        <p>Delivery</p>
-        <h4>Total</h4>
+        <div id="itemPricingDiv">
+          <p>Sale</p>
+          <p>Delivery</p>
+          <h4>Total</h4>
+        </div>
+        
+        <div>
+          <p>Rs. <span id="salesPrice">253</span></p>
+          <p>Rs. <span id="deliveryCharge">250</span> </p>
+          <h4 id="totalAmt"></h4>
+        </div>
       </div>
     </div>
   </div>
