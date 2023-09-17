@@ -250,6 +250,7 @@ let products = [
   },
 ];
 let popularProductsRender = (pre = "", start = 0) => {
+  console.log(products.length)
   document.getElementById("popularProducts_body").innerHTML = "";
   let end = start + 4;
   for (start; start < end && start < products.length; start++) {
