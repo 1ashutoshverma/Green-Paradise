@@ -4,6 +4,7 @@ import footer from "../Product_Page/components/footer/footer.js";
 document.getElementById("footer").innerHTML = footer();
 
 let payable = JSON.parse(localStorage.getItem("totalAmount")) || 0;
+let products = JSON.parse(localStorage.getItem("cart")) || [];
 
 document.getElementById("kkpaybtn").addEventListener("click", function (e) {
   var options = {
@@ -30,6 +31,16 @@ document.getElementById("kkpaybtn").addEventListener("click", function (e) {
   e.preventDefault();
 });
 
+//quantitiy upadate on cart
+let qty = document.getElementById("quantity_bigscreen");
+let qty2 = document.getElementById("quantity_smallscreen");
+let netqty = 0;
+products.forEach((ele) => {
+  netqty = netqty + Number(ele.qty);
+  qty.textContent = netqty;
+  qty2.textContent = netqty;
+});
+
 document.getElementById("kkcont").addEventListener("click", () => {
   let menu = document.getElementById("kkdelivery");
   // let display = window.getComputedStyle(menu).display;
@@ -48,7 +59,6 @@ document.getElementById("kkbackbtn").addEventListener("click", () => {
   menu2.style.display = "block";
 });
 
-let products = JSON.parse(localStorage.getItem("cart")) || [];
 // Green-Paradise\HTML\images\5-kg-cow-manure.webp
 //let arr = JSON.parse(localStorage.getItem("product_list"))||[];
 
@@ -100,6 +110,11 @@ function displayData(products) {
       if (count == 1) {
         return;
       } else {
+        //
+        netqty = netqty - 1;
+        document.getElementById("quantity_bigscreen").textContent = netqty;
+        document.getElementById("quantity_smallscreen").textContent = netqty;
+        //
         product.qty = Number(product.qty) - 1;
         localStorage.setItem("cart", JSON.stringify(products));
         count--;
@@ -119,6 +134,11 @@ function displayData(products) {
     plus.innerHTML = `<i class="fa-solid fa-plus"></i>`;
     plus.setAttribute("class", "plus");
     plus.onclick = () => {
+      //
+      netqty = netqty + 1;
+      document.getElementById("quantity_bigscreen").textContent = netqty;
+      document.getElementById("quantity_smallscreen").textContent = netqty;
+      //
       count++;
       qty.textContent = count;
       product.qty = Number(product.qty) + 1;
@@ -133,6 +153,13 @@ function displayData(products) {
     deleteItem.onclick = () => {
       totalAmount -= Number(product.price) * Number(product.qty);
       updateTotalAmount();
+      //
+      netqty = netqty - Number(product.qty);
+      console.log(qty, product.qty);
+      document.getElementById("quantity_bigscreen").textContent = netqty;
+      document.getElementById("quantity_smallscreen").textContent = netqty;
+      // qty.textContent = netqty;
+      // //
       products.splice(idx, 1);
       localStorage.setItem("cart", JSON.stringify(products));
       container.remove();
