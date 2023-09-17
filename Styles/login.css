@@ -46,6 +46,7 @@
   justify-content: center;
   align-items: center;
 }
+
 #form1 > div {
   display: flex;
   justify-content: center;
@@ -54,6 +55,31 @@
 }
 #form1 > div > input {
   border: 1px solid #bccaa2;
+}
+#form2 > div > input {
+  border: 1px solid #bccaa2;
+}
+#form2 > div > label {
+  color: #314b01;
+  font-family: inherit;
+}
+#form2 {
+  /* padding-top: 15px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#form2 > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#form2 > div > label {
+  padding-left: 13px;
+  align-self: flex-start;
 }
 .parent > div:nth-child(1) {
   display: flex;
@@ -92,7 +118,7 @@
 .child {
   margin-bottom: 24px;
 }
-#account_create {
+.account_create {
   /* border: 1px solid darkblue; */
   text-align: center;
   color: #a7a8a6;
@@ -105,11 +131,13 @@
   text-decoration: none;
   color: #6c6d6b;
 }
-#go_to_from_login {
+#go_to_from_login,
+#go_to_from_sign_up {
   color: #486e00;
   font-weight: 600;
   font-size: 1.1rem;
 }
+
 .child label {
   /* converting label as block level element */
   display: block;

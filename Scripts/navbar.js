@@ -182,7 +182,7 @@ function loginScreen() {
     >Forgot password?</a
   >
   
-  <p id="account_create">New here?<span id="go_to_from_login" class="buttons_log"> Create an account</span></p>
+  <p class="account_create">New here?<span id="go_to_from_login" class="buttons_log"> Create an account</span></p>
 </div>`;
 }
 
@@ -226,11 +226,18 @@ function signupScreen() {
     <div class="child">
       <button class="ls_btn" type="submit" id="signup_by_email">CONTINUE</button>
     </div>
-    <p id="go_to_from_sign_up" class="buttons_log">Login</p>
+
+    
+    <p class="account_create">Already a user? <span id="go_to_from_sign_up" class="buttons_log"> Login </span></p>
+    
   </form>
 </div>`;
 }
+{
+  /* <p id="account_create">New here?<span id="go_to_from_login" class="buttons_log"> Create an account</span></p>
 
+<p id="go_to_from_sign_up" class="buttons_log">Login</p> */
+}
 navbarBigscreen();
 navbarSmallscreen();
 loginScreen();
