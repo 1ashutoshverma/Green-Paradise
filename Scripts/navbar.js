@@ -6,34 +6,34 @@ let navbar_smallscreen = document.getElementById(
 function navbarBigscreen() {
   navbar_bigscreen.innerHTML = `<div id="navbar_bigscreen">
     <div id="first_bigscreen">
-      <a href="index.html">Green paradise</a>
+      <a href="/index.html">Green paradise</a>
     </div>
     <div id="middle_bigscreen">
-      <a href="#" class="catalog_link">Catalog</a>
+      <a href="/Product_Page/index.html" class="catalog_link">Catalog</a>
       <a href="#">Sale</a>
-      <a href="#">Delivery and payment</a>
+      <a href="/checkout.html">Delivery and payment</a>
       <a href="#">Contact</a>
     </div>
     <div id="last_bigscreen">
       <div id="search_bigscreen">
         <div><input type="text" placeholder="Search products...." id="search_bigscreen_input"/></div>
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/search-icon.svg" alt="" />
+          <img src="/Images/navbar_images/search-icon.svg" alt="" />
         </div>
       </div>
     
       <div id="login1_bigscreen" class="login_form"><a href="#" style="text-decoration:none; color:#486e00">Login</a></div>
       <div id="login2_bigscreen">
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/human-icon.svg" alt="" />
+          <img src="/Images/navbar_images/human-icon.svg" alt="" />
         </div>
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/arrow-icon.svg" alt="" />
+          <img src="/Images/navbar_images/arrow-icon.svg" alt="" />
         </div>
       </div>
       <div id="cart_bigscreen">
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/bucket-icon.svg" alt="" />
+          <img src="/Images/navbar_images/bucket-icon.svg" alt="" />
         </div>
         <div>0</div>
       </div>
@@ -66,13 +66,13 @@ function navbarBigscreen() {
 function navbarSmallscreen() {
   navbar_smallscreen.innerHTML = ` <div id="navbar_smallscreen">
     <div id="first_smallscreen">
-      <a href="./index.html">Green Paradise</a>
+      <a href="/index.html">Green Paradise</a>
     </div>
 
     <div id="second_smallscreen">
       <div id="search_smallscreen">
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/search-icon.svg" alt="" />
+          <img src="/Images/navbar_images/search-icon.svg" alt="" />
         </div>
       </div>
 
@@ -80,14 +80,14 @@ function navbarSmallscreen() {
 
       <div id="login2_smallscreen">
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/human-icon.svg" alt="" />
+          <img src="/Images/navbar_images/human-icon.svg" alt="" />
         </div>
       </div>
 
       <a href="#" style="text-decoration:none">
         <div id="cart_smallscreen">
           <div class="icon_bigscreen">
-            <img src="./Images/navbar_images/bucket-icon.svg" alt="" />
+            <img src="/Images/navbar_images/bucket-icon.svg" alt="" />
           </div>
           <div>0</div>
         </div>
@@ -95,7 +95,7 @@ function navbarSmallscreen() {
     </div>
     <div id="third_smallscreen">
       <div class="icon_bigscreen">
-        <img src="./Images/navbar_images/list-icon.svg" alt="" />
+        <img src="/Images/navbar_images/list-icon.svg" alt="" />
       </div>
     </div>
   </div>
@@ -113,7 +113,7 @@ function navbarSmallscreen() {
     <div>
       <div class="username_cart_mobile">
         <a href="#" id="mobile_username">UserName</a>
-        <a href="#">My Cart</a>
+        <a href="/checkout.html">My Cart</a>
       </div>
       
       <div>
@@ -126,7 +126,7 @@ function navbarSmallscreen() {
      
       <div>
       <h4>Others</h4>
-        <a href="#" class="catalog_link">Catalog</a>
+        <a href="/Product_Page/index.html" class="catalog_link">Catalog</a>
         <a href="#">Sale</a>
         <a href="#">Delivery and Payment</a>
         <a href="#">Contact</a>
@@ -145,16 +145,16 @@ function loginScreen() {
   <div>
     <h2>Green paradise</h2>
     <div id="closing_login">
-      <img src="./Images/navbar_images/cross-svgrepo-com.svg" alt="" />
+      <img src="/Images/navbar_images/cross-svgrepo-com.svg" alt="" />
     </div>
   </div>
   <h5 id="login" class="h2" tabindex="-1">Welcome back! Sign in with</h5>
   <div id="images">
   <div>
-      <img id="fb" src="./Images/navbar_images/facebook.png" alt="" />
+      <img id="fb" src="/Images/navbar_images/facebook.png" alt="" />
     </div>
     <div>
-      <img id="google_auth" src="./Images/navbar_images/google.webp" alt="" />
+      <img id="google_auth" src="/Images/navbar_images/google.webp" alt="" />
     </div>
   </div>
   <form id="form1" class="form">
@@ -193,7 +193,7 @@ function signupScreen() {
   <div>
     <h2>Create an email account</h2>
     <div id="closing_signup">
-      <img src="./Images/navbar_images/cross-svgrepo-com.svg" alt="" />
+      <img src="/Images/navbar_images/cross-svgrepo-com.svg" alt="" />
     </div>
   </div>
 
@@ -236,6 +236,10 @@ navbarSmallscreen();
 loginScreen();
 signupScreen();
 
+//------------------- routing of pages --------------------------->>
+document.getElementById("cart_bigscreen").addEventListener("click", () => {
+  window.location = "/checkout.html";
+});
 //------------------------Big screen functionality -------------------------->>
 document
   .getElementById("login2_bigscreen")
@@ -254,7 +258,7 @@ document
 document
   .getElementById("user_dropdown_bigscreen")
   .addEventListener("click", () => {
-    window.location = "./index.html";
+    window.location = "/index.html";
   });
 
 document
@@ -366,7 +370,7 @@ username_mobile.addEventListener("click", () => {
     let menu = document.getElementById("popup_login");
     menu.style.display = "flex";
   } else {
-    window.location = "./index.html";
+    window.location = "/index.html";
   }
 });
 
