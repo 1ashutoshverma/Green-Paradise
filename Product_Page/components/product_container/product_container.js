@@ -368,7 +368,7 @@ let render = (data, start, till = 6, type = "notScroll") => {
       setTimeout(() => {
         svgContainers.innerHTML = innerHTML;
         svgContainers.disabled = false;
-      }, 200);
+      }, 100);
       console.log(cart, curr);
     };
     productInfoContainer.appendChild(productInfoLeft);
