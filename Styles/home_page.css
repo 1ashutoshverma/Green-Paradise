@@ -1,8 +1,21 @@
-body {
-  font-family: "Roboto", sans-serif;
+@font-face {
+  font-family: "ClashDisplay SemiBold";
+  src: url("../Product_Page/fonts/ClashDisplay-Semibold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "ClashDisplay Regular";
+  src: url("../Product_Page/fonts/ClashDisplay-Regular.otf") format("opentype");
+}
+
+* {
+  font-family: "ClashDisplay Regular", sans-serif;
 }
 
 /* ------------------first tile ---------------------- */
+#heading{
+  font-family: "ClashDisplay SemiBold",sans-serif;
+}
 #first_tile {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -50,6 +63,9 @@ body {
 #first_tile > div:nth-child(1) > div {
   border: 1px solid red;
   width: 100%;
+}
+#popularProducts{
+  width: 90%;
 }
 #first_tile > div:nth-child(1) > img {
   width: 50%;
@@ -258,6 +274,9 @@ body {
 }
 
 @media screen and (width<=750px) {
+  #popularProducts {
+      width: 98%;
+  }
   #second_tile_container > div > div:nth-child(2) p {
     font-size: 0.9rem;
   }

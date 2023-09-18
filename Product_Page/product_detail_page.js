@@ -1,6 +1,8 @@
 import { navbarBigscreen, navbarSmallscreen } from "../Scripts/navbar.js";
-import popularProducts, {popularProductsRender} from "./components/popular_products_container/popular_products_container.js";
-import footer from './components/footer/footer.js'
+import popularProducts, {
+  popularProductsRender,
+} from "./components/popular_products_container/popular_products_container.js";
+import footer from "./components/footer/footer.js";
 let curr = JSON.parse(localStorage.getItem("Current_Product"));
 console.log(curr);
 let banner = document.getElementById("banner");
@@ -19,7 +21,7 @@ let prevPopProd = document.getElementById("prev_popular_product");
 let popStart = 0;
 
 nextPopProd.onclick = () => {
-  popStart = popularProductsRender(popStart, 3);
+  popStart = popularProductsRender("", popStart, 3);
   if (popStart >= popularProducts.length) {
     nextPopProd.disabled = true;
     nextPopProd.style.backgroundColor = "lightgray";
@@ -31,7 +33,7 @@ nextPopProd.onclick = () => {
 };
 
 prevPopProd.onclick = () => {
-  popStart = popularProductsRender(popStart - 6, 3);
+  popStart = popularProductsRender("", popStart - 6, 3);
   if (popStart == 0 || popStart == 3) {
     prevPopProd.disabled = true;
     prevPopProd.style.backgroundColor = "lightgray";
@@ -42,28 +44,63 @@ prevPopProd.onclick = () => {
   }
 };
 window.onload = () => {
-  popStart = popularProductsRender(popStart, 3);
+  popStart = popularProductsRender("", popStart, 3);
 };
 prevPopProd.disabled = true;
 prevPopProd.style.backgroundColor = "lightgray";
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-document.querySelector('#footer').innerHTML=footer()
-let addButton = document.getElementById('add_button');
-addButton.onclick=()=>{
-  addButton.disabled=true
-  addButton.innerText="Added"
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+///
+let qty = document.getElementById("quantity_bigscreen");
+let netqty = 0;
+cart.forEach((ele) => {
+  netqty = netqty + Number(ele.qty);
+  document.getElementById("quantity_smallscreen").textContent = netqty;
+  qty.textContent = netqty;
+  ///
+});
+
+document.querySelector("#footer").innerHTML = footer();
+let addButton = document.getElementById("add_button");
+addButton.onclick = () => {
+  addButton.disabled = true;
+  addButton.innerText = "Added";
   let alreadyPresent = false;
-  cart.map(el=>{
-    if(el.img===curr.img){
-      el.qty=el.qty+1;
+  cart.map((el) => {
+    if (el.img === curr.img) {
+      el.qty = el.qty + 1;
+      ///
+      let qty = document.getElementById("quantity_bigscreen");
+
+      let netqty = 0;
+      cart.forEach((ele) => {
+        netqty = netqty + Number(ele.qty);
+        document.getElementById("quantity_smallscreen").textContent = netqty;
+        qty.textContent = netqty;
+      });
+      ///
       alreadyPresent = true;
     }
-  })
+  });
   curr.qty = 1;
-  if(!alreadyPresent)cart.push(curr);
-  localStorage.setItem('cart',JSON.stringify(cart))
-  setTimeout(()=>{
-    addButton.innerText="Add To Basket"
-    addButton.disabled=false
-  },750)
-}
+
+  if (!alreadyPresent) cart.push(curr);
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  ///
+  let qty = document.getElementById("quantity_bigscreen");
+  let netqty = 0;
+  cart.forEach((ele) => {
+    netqty = netqty + Number(ele.qty);
+    document.getElementById("quantity_smallscreen").textContent = netqty;
+    qty.textContent = netqty;
+  });
+  ///
+  setTimeout(() => {
+    addButton.innerText = "Add To Basket";
+    addButton.disabled = false;
+  }, 750);
+};
+document.getElementById("catalog_link").onclick = () => {
+  console.log("catalog_link");
+  window.location.assign("./index.html");
+};

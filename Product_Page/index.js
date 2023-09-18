@@ -7,8 +7,11 @@ import popularProducts, {
   popularProductsRender
 } from "./components/popular_products_container/popular_products_container.js";
 let body = document.querySelector("body");
-let i = 1;
+let i = 1,throttler = false;
 window.onscroll = () => {
+  if(throttler)return;
+  throttler=true;
+  setTimeout(()=>{throttler=false},250)
   if (Math.ceil(window.scrollY) > i * 700) {
     console.log(Math.ceil(window.scrollY));
     start = render(data, start, 6, "scroll");
@@ -72,7 +75,7 @@ document.getElementById("reset_filters").onclick = () => {
   if (soil_fertilizers) soilFertilizerFilter.click();
   priceRangeFilter.value = 2500;
   data = sortNfilter();
-  start = render(products, 0);
+  start = render(data, 0);
 };
 let sortNfilter = () => {
   let filtered = productFilter();
@@ -103,8 +106,10 @@ let productSort = (data) => {
   if (val === "atoz") return temp.sort((a, b) => a.name.localeCompare(b.name));
   else if (val === "ztoa")
     return temp.sort((a, b) => -a.name.localeCompare(b.name));
-  else if (val === "lowtohigh") return temp.sort((a, b) => a.price - b.price);
-  else if (val === "hightolow") return temp.sort((a, b) => b.price - a.price);
+  else if (val === "lowtohigh")
+    return temp.sort((a, b) => a.price - b.price);
+  else if (val === "hightolow")
+    return temp.sort((a, b) => b.price - a.price);
   else return temp;
 };
 let nextPopProd = document.getElementById("next_popular_product");
@@ -113,7 +118,7 @@ let prevPopProd = document.getElementById("prev_popular_product");
 let popStart = 0;
 
 nextPopProd.onclick = () => {
-  popStart = popularProductsRender(popStart, 3);
+  popStart = popularProductsRender("",popStart, 4);
   if (popStart >= popularProducts.length) {
     nextPopProd.disabled = true;
     nextPopProd.style.backgroundColor = "lightgray";
@@ -125,8 +130,8 @@ nextPopProd.onclick = () => {
 };
 
 prevPopProd.onclick = () => {
-  popStart = popularProductsRender(popStart - 6, 3);
-  if (popStart == 0 || popStart == 3) {
+  popStart = popularProductsRender("",popStart - 6, 4);
+  if (popStart == 0 || popStart == 4) {
     prevPopProd.disabled = true;
     prevPopProd.style.backgroundColor = "lightgray";
   }
@@ -137,7 +142,11 @@ prevPopProd.onclick = () => {
 };
 window.onload = () => {
   start = render(products, 0);
-  popStart = popularProductsRender(popStart, 3);
+  popStart = popularProductsRender("./",popStart, 4);
 };
+for(let elem of document.getElementsByClassName('catalog_link')){
+  elem.disabled=true;
+  elem.style.color="darkgray"
+}
 prevPopProd.disabled = true;
 prevPopProd.style.backgroundColor = "lightgray";

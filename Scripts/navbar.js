@@ -6,36 +6,36 @@ let navbar_smallscreen = document.getElementById(
 function navbarBigscreen() {
   navbar_bigscreen.innerHTML = `<div id="navbar_bigscreen">
     <div id="first_bigscreen">
-      <a href="index.html">Green paradise</a>
+      <a href="/index.html">Green paradise</a>
     </div>
     <div id="middle_bigscreen">
-      <a href="#">Catalog</a>
+      <a href="/Product_Page/index.html" class="catalog_link">Catalog</a>
       <a href="#">Sale</a>
-      <a href="#">Delivery and payment</a>
+      <a href="/checkout.html">Delivery and payment</a>
       <a href="#">Contact</a>
     </div>
     <div id="last_bigscreen">
       <div id="search_bigscreen">
         <div><input type="text" placeholder="Search products...." id="search_bigscreen_input"/></div>
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/search-icon.svg" alt="" />
+          <img src="/Images/navbar_images/search-icon.svg" alt="" />
         </div>
       </div>
     
       <div id="login1_bigscreen" class="login_form"><a href="#" style="text-decoration:none; color:#486e00">Login</a></div>
       <div id="login2_bigscreen">
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/human-icon.svg" alt="" />
+          <img src="/Images/navbar_images/human-icon.svg" alt="" />
         </div>
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/arrow-icon.svg" alt="" />
+          <img src="/Images/navbar_images/arrow-icon.svg" alt="" />
         </div>
       </div>
       <div id="cart_bigscreen">
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/bucket-icon.svg" alt="" />
+          <img src="/Images/navbar_images/bucket-icon.svg" alt="" />
         </div>
-        <div>0</div>
+        <div id="quantity_bigscreen">0</div>
       </div>
     </div>
     </div>
@@ -66,13 +66,13 @@ function navbarBigscreen() {
 function navbarSmallscreen() {
   navbar_smallscreen.innerHTML = ` <div id="navbar_smallscreen">
     <div id="first_smallscreen">
-      <a href="./index.html">Green Paradise</a>
+      <a href="/index.html">Green Paradise</a>
     </div>
 
     <div id="second_smallscreen">
       <div id="search_smallscreen">
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/search-icon.svg" alt="" />
+          <img src="/Images/navbar_images/search-icon.svg" alt="" />
         </div>
       </div>
 
@@ -80,22 +80,22 @@ function navbarSmallscreen() {
 
       <div id="login2_smallscreen">
         <div class="icon_bigscreen">
-          <img src="./Images/navbar_images/human-icon.svg" alt="" />
+          <img src="/Images/navbar_images/human-icon.svg" alt="" />
         </div>
       </div>
 
       <a href="#" style="text-decoration:none">
         <div id="cart_smallscreen">
           <div class="icon_bigscreen">
-            <img src="./Images/navbar_images/bucket-icon.svg" alt="" />
+            <img src="/Images/navbar_images/bucket-icon.svg" alt="" />
           </div>
-          <div>0</div>
+          <div id="quantity_smallscreen">0</div>
         </div>
       </a>
     </div>
     <div id="third_smallscreen">
       <div class="icon_bigscreen">
-        <img src="./Images/navbar_images/list-icon.svg" alt="" />
+        <img src="/Images/navbar_images/list-icon.svg" alt="" />
       </div>
     </div>
   </div>
@@ -113,7 +113,7 @@ function navbarSmallscreen() {
     <div>
       <div class="username_cart_mobile">
         <a href="#" id="mobile_username">UserName</a>
-        <a href="#">My Cart</a>
+        <a href="/checkout.html">My Cart</a>
       </div>
       
       <div>
@@ -126,7 +126,7 @@ function navbarSmallscreen() {
      
       <div>
       <h4>Others</h4>
-        <a href="#">Catalog</a>
+        <a href="/Product_Page/index.html" class="catalog_link">Catalog</a>
         <a href="#">Sale</a>
         <a href="#">Delivery and Payment</a>
         <a href="#">Contact</a>
@@ -145,16 +145,16 @@ function loginScreen() {
   <div>
     <h2>Green paradise</h2>
     <div id="closing_login">
-      <img src="./Images/navbar_images/cross-svgrepo-com.svg" alt="" />
+      <img src="/Images/navbar_images/cross-svgrepo-com.svg" alt="" />
     </div>
   </div>
   <h5 id="login" class="h2" tabindex="-1">Welcome back! Sign in with</h5>
   <div id="images">
   <div>
-      <img id="fb" src="./Images/navbar_images/facebook.png" alt="" />
+      <img id="fb" src="/Images/navbar_images/facebook.png" alt="" />
     </div>
     <div>
-      <img id="google_auth" src="./Images/navbar_images/google.webp" alt="" />
+      <img id="google_auth" src="/Images/navbar_images/google.webp" alt="" />
     </div>
   </div>
   <form id="form1" class="form">
@@ -178,10 +178,11 @@ function loginScreen() {
       <button class="ls_btn" type="submit" id="signin_button">SIGN IN</button>
     </div>
   </form>
-  <a href="" style="margin-top: 10px; text-decoration: none; color: black"
-    >FORGOT YOUR PASSWORD?</a
-  ><br />
-  <p id="go_to_from_login" class="buttons_log">Sign up</p>
+  <a id="forget_password" href=""
+    >Forgot password?</a
+  >
+  
+  <p class="account_create">New here?<span id="go_to_from_login" class="buttons_log"> Create an account</span></p>
 </div>`;
 }
 
@@ -192,7 +193,7 @@ function signupScreen() {
   <div>
     <h2>Create an email account</h2>
     <div id="closing_signup">
-      <img src="./Images/navbar_images/cross-svgrepo-com.svg" alt="" />
+      <img src="/Images/navbar_images/cross-svgrepo-com.svg" alt="" />
     </div>
   </div>
 
@@ -225,16 +226,37 @@ function signupScreen() {
     <div class="child">
       <button class="ls_btn" type="submit" id="signup_by_email">CONTINUE</button>
     </div>
-    <p id="go_to_from_sign_up" class="buttons_log">Login</p>
+
+    
+    <p class="account_create">Already a user? <span id="go_to_from_sign_up" class="buttons_log"> Login </span></p>
+    
   </form>
 </div>`;
 }
+{
+  /* <p id="account_create">New here?<span id="go_to_from_login" class="buttons_log"> Create an account</span></p>
 
+<p id="go_to_from_sign_up" class="buttons_log">Login</p> */
+}
 navbarBigscreen();
 navbarSmallscreen();
 loginScreen();
 signupScreen();
 
+//------------------- routing of pages --------------------------->>
+document.getElementById("cart_bigscreen").addEventListener("click", () => {
+  window.location = "/checkout.html";
+});
+// --------------------------quantity big screen----------------->>
+let productsQty = JSON.parse(localStorage.getItem("cart")) || [];
+let qty = document.getElementById("quantity_bigscreen");
+let qty2 = document.getElementById("quantity_smallscreen");
+let netqty = 0;
+productsQty.forEach((ele) => {
+  netqty = netqty + Number(ele.qty);
+  qty.textContent = netqty;
+  qty2.textContent = netqty;
+});
 //------------------------Big screen functionality -------------------------->>
 document
   .getElementById("login2_bigscreen")
@@ -253,7 +275,7 @@ document
 document
   .getElementById("user_dropdown_bigscreen")
   .addEventListener("click", () => {
-    window.location = "./index.html";
+    window.location = "/index.html";
   });
 
 document
@@ -365,7 +387,7 @@ username_mobile.addEventListener("click", () => {
     let menu = document.getElementById("popup_login");
     menu.style.display = "flex";
   } else {
-    window.location = "./index.html";
+    window.location = "/index.html";
   }
 });
 
@@ -404,77 +426,87 @@ const analytics = getAnalytics(app);
 const auth = getAuth();
 //-------------------------SignUp------------------------------>>
 let signup_by_email = document.getElementById("signup_by_email");
-signup_by_email.addEventListener("click", () => {
+console.log(signup_by_email);
+signup_by_email.addEventListener("click", (event) => {
+  event.preventDefault();
   let email = document.getElementById("email2").value;
   let password = document.getElementById("confirmpassword").value;
   let username = document.getElementById("username").value;
-  console.log(username);
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
+  // let pass = document.getElementById("password").value;
 
-      userData = {
-        username: username,
-        login_status: "loggedIn",
-      };
-      signup_screen.style.display = "";
-      document.getElementById("user_dropdown_bigscreen").innerText =
-        userData.username;
-      document.getElementById("mobile_username").textContent =
-        userData.username;
-      document.getElementById("login1_bigscreen").style.display = "";
-      document.getElementById("login2_bigscreen").style.display = "flex";
-      document.getElementById("login1_smallscreen").style.display = "";
-      document.getElementById("login2_smallscreen").style.display = "flex";
-      document.getElementById("logout_button_mobile").style.display = "block";
-      localStorage.setItem("userData", JSON.stringify(userData));
-      console.log(user);
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert("credentials are wrong!");
-      // ..
-    });
+  if (email != "" && password != "" && username != "") {
+    console.log(username);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+
+        userData = {
+          username: username,
+          login_status: "loggedIn",
+        };
+        signup_screen.style.display = "";
+        document.getElementById("user_dropdown_bigscreen").innerText =
+          userData.username;
+        document.getElementById("mobile_username").textContent =
+          userData.username;
+        document.getElementById("login1_bigscreen").style.display = "";
+        document.getElementById("login2_bigscreen").style.display = "flex";
+        document.getElementById("login1_smallscreen").style.display = "";
+        document.getElementById("login2_smallscreen").style.display = "flex";
+        document.getElementById("logout_button_mobile").style.display = "block";
+        localStorage.setItem("userData", JSON.stringify(userData));
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("You have already signed up, please login!");
+        // ..
+      });
+  }
 });
 
 //--------------------------------Login------------------------>>
 let signin_button = document.getElementById("signin_button");
-signin_button.addEventListener("click", () => {
+signin_button.addEventListener("click", (event) => {
+  event.preventDefault();
   let email = document.getElementById("email1").value;
   let password = document.getElementById("password1").value;
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
 
-      let name = userData.username;
+  if (email != "" && password != "") {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
 
-      userData = {
-        username: name,
-        login_status: "loggedIn",
-      };
-      login_screen.style.display = "";
-      document.getElementById("user_dropdown_bigscreen").innerText =
-        userData.username;
-      document.getElementById("mobile_username").textContent =
-        userData.username;
-      document.getElementById("login1_bigscreen").style.display = "";
-      document.getElementById("login2_bigscreen").style.display = "flex";
-      document.getElementById("login1_smallscreen").style.display = "";
-      document.getElementById("login2_smallscreen").style.display = "flex";
-      document.getElementById("logout_button_mobile").style.display = "block";
-      localStorage.setItem("userData", JSON.stringify(userData));
-      console.log(user);
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert("credentials are wrong!");
-    });
+        let name = userData.username;
+
+        userData = {
+          username: name,
+          login_status: "loggedIn",
+        };
+        login_screen.style.display = "";
+        document.getElementById("user_dropdown_bigscreen").innerText =
+          userData.username;
+        document.getElementById("mobile_username").textContent =
+          userData.username;
+        document.getElementById("login1_bigscreen").style.display = "";
+        document.getElementById("login2_bigscreen").style.display = "flex";
+        document.getElementById("login1_smallscreen").style.display = "";
+        document.getElementById("login2_smallscreen").style.display = "flex";
+        document.getElementById("logout_button_mobile").style.display = "block";
+        localStorage.setItem("userData", JSON.stringify(userData));
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("Email or password is wrong!");
+      });
+  }
 });
 
 // ---------------------logout-------------------->>
@@ -1013,7 +1045,7 @@ input.addEventListener("input", (event) => {
             cartData = ele;
             localStorage.setItem("Current_Product", JSON.stringify(cartData));
             //give the location of description page
-            window.location = "./index.html";
+            window.location = "/Product_Page/Product_Detail_Page.html";
           });
           mainDiv.append(div);
           console.log(ele);
@@ -1056,7 +1088,7 @@ input_smallScreen.addEventListener("input", (event) => {
             cartData = ele;
             localStorage.setItem("Current_Product", JSON.stringify(cartData));
             //give the location of description page
-            window.location = "./index.html";
+            window.location = "/Product_Page/Product_Detail_Page.html";
           });
           mainDiv.append(div);
           console.log(ele);
