@@ -6,7 +6,17 @@ document.getElementById("footer").innerHTML = footer();
 let payable = JSON.parse(localStorage.getItem("totalAmount")) || 0;
 let products = JSON.parse(localStorage.getItem("cart")) || [];
 
+//payable ammount initilization
+if (products.length > 0) {
+  let totalAmount = 0;
+  products.forEach((product) => {
+    totalAmount += Number(product.price) * Number(product.qty);
+  });
+  localStorage.setItem("totalAmount", JSON.stringify(totalAmount + 253 + 250));
+}
+
 document.getElementById("kkpaybtn").addEventListener("click", function (e) {
+  payable = JSON.parse(localStorage.getItem("totalAmount")) || 0;
   var options = {
     key: "rzp_test_PuIvwrP2D7FLip",
     amount: payable * 100, // Amount in paise (100 paise = 1 INR)
@@ -14,8 +24,12 @@ document.getElementById("kkpaybtn").addEventListener("click", function (e) {
     name: "Green Paradise",
     description: "Payment for your order",
     image: "../images/logo.png",
-    handler: function(response) {         
-      window.location.href = '/index.html';
+    handler: function (response) {
+      document.getElementById("quantity_bigscreen").textContent = 0;
+      document.getElementById("quantity_smallscreen").textContent = 0;
+      products = [];
+      localStorage.setItem("cart", JSON.stringify(products));
+      window.location.href = "/index.html";
     },
 
     prefill: {
@@ -29,7 +43,6 @@ document.getElementById("kkpaybtn").addEventListener("click", function (e) {
   };
 
   var rzp = new Razorpay(options);
-
 
   rzp.open();
   e.preventDefault();
@@ -63,7 +76,6 @@ document.getElementById("kkbackbtn").addEventListener("click", () => {
   menu2.style.display = "block";
 });
 
-
 let productContainer = document.getElementById("kkrightcontent");
 let itemImg = document.getElementById("itemImg");
 let details = document.getElementById("itemDetails");
@@ -73,9 +85,9 @@ let totalAmount = 0;
 function updateTotalAmount() {
   payable =
     totalAmount + Number(sale.textContent) + Number(delivery.textContent);
-  console.log(payable);
   totalAmt.textContent = "Rs. " + payable;
 
+  // console.log(payable);
   localStorage.setItem("totalAmount", JSON.stringify(payable));
 }
 
@@ -192,7 +204,7 @@ function displayData(products) {
       document.getElementById("quantity_smallscreen").textContent = netqty;
       // qty.textContent = netqty;
       // //
-      products=products.filter(el=>el.img!==product.img) 
+      products = products.filter((el) => el.img !== product.img);
       localStorage.setItem("cart", JSON.stringify(products));
       container.remove();
       if (products.length <= 0) {
@@ -215,37 +227,40 @@ totalAmt.textContent =
   "Rs. " +
   (totalAmount + Number(sale.textContent) + Number(delivery.textContent));
 
-
 // Validation
-var inputFields = document.querySelectorAll('.kkinputfields input');
-var continueButton = document.getElementById('kkcont');
+var inputFields = document.querySelectorAll(".kkinputfields input");
+var continueButton = document.getElementById("kkcont");
 
 // Function to check if any input field is empty
 function checkInputs() {
   let isEmailValid = true;
   for (var i = 0; i < inputFields.length; i++) {
-    if (inputFields[i].value === '') {
+    if (inputFields[i].value === "") {
       continueButton.disabled = true; // Disable the "Continue" button
       return;
     }
   }
-  const emailInput = document.getElementById('email'); // Assuming the email input has the id "email"
-  if (!emailInput.value.includes('@') || !emailInput.value.includes('gmail')  || !emailInput.value.includes('.com')) {
+  const emailInput = document.getElementById("email"); // Assuming the email input has the id "email"
+  if (
+    !emailInput.value.includes("@") ||
+    !emailInput.value.includes("gmail") ||
+    !emailInput.value.includes(".com")
+  ) {
     isEmailValid = false;
   }
   continueButton.disabled = !isEmailValid; // Enable the "Continue" button
 }
 
 for (var i = 0; i < inputFields.length; i++) {
-  inputFields[i].addEventListener('input', checkInputs);
+  inputFields[i].addEventListener("input", checkInputs);
 }
 checkInputs();
 
-var countryInput = document.getElementById('country');
-var stateInput = document.getElementById('indian-states');
-var cityInput = document.getElementById('city');
-var pinInput = document.getElementById('pin');
-var payButton = document.getElementById('kkpaybtn');
+var countryInput = document.getElementById("country");
+var stateInput = document.getElementById("indian-states");
+var cityInput = document.getElementById("city");
+var pinInput = document.getElementById("pin");
+var payButton = document.getElementById("kkpaybtn");
 
 function checkInputsForDelivery() {
   const countryValue = countryInput.value;
@@ -257,10 +272,10 @@ function checkInputsForDelivery() {
 
   // Check if any input field is empty or the pin is not valid
   if (
-    countryValue === '' ||
-    stateValue === '' ||
-    cityValue === '' ||
-    pinValue === '' ||
+    countryValue === "" ||
+    stateValue === "" ||
+    cityValue === "" ||
+    pinValue === "" ||
     !isPinValid
   ) {
     payButton.disabled = true; // Disable the "Proceed to Pay" button
@@ -270,10 +285,10 @@ function checkInputsForDelivery() {
 }
 
 // Add event listeners to the input fields
-countryInput.addEventListener('input', checkInputsForDelivery);
-stateInput.addEventListener('input', checkInputsForDelivery);
-cityInput.addEventListener('input', checkInputsForDelivery);
-pinInput.addEventListener('input', checkInputsForDelivery);
+countryInput.addEventListener("input", checkInputsForDelivery);
+stateInput.addEventListener("input", checkInputsForDelivery);
+cityInput.addEventListener("input", checkInputsForDelivery);
+pinInput.addEventListener("input", checkInputsForDelivery);
 
 // Initial check on page load
 checkInputsForDelivery();
