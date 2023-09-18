@@ -12,6 +12,8 @@
   font-family: "ClashDisplay Regular", sans-serif;
 }
 /* ------------------------------ */
+
+
 #kkcontainer {
   padding-top: 65px;
   width: 90%;
@@ -152,7 +154,6 @@ h3 {
   display: flex;
   flex-direction: column;
   height: 35vh;
-
   overflow: auto;
 }
 
@@ -173,28 +174,15 @@ h3 {
   justify-content: space-between;
   align-items: center;
   margin-right: 10px;
-  /* margin-top: 7px;
-  margin-bottom: 10px;
-  margin-left: 5px; */
   margin: 10px;
   padding: 10px;
   border-radius: 8px;
-  /* background-color: #054203; */
-  /* border: 1px solid red; */
   box-shadow: rgba(99, 99, 99, 0.15) 0px 2px 8px 0px;
 }
 
 #itemDetails > div img {
   width: 25%;
 }
-
-/* #kkrightcontent div {
- display: flex;
- justify-content: space-between;
-  border: 1px solid red;
-  margin-top: 25px;
-} */
-
 .itemPricing {
   display: flex;
   justify-content: space-between;
@@ -262,7 +250,7 @@ body {
   input {
     border-radius: 8px;
     border: 2px solid grey;
-    padding: 3px;
+    padding: 5px;
     width: 100%;
     display: grid;
     gap: 20px;
@@ -296,4 +284,27 @@ body {
     display: flex;
     flex-direction: column;
   }
+}
+
+
+#kkcont:disabled {
+  background-color: red; 
+  cursor: not-allowed; 
+}
+
+#kkcont:not(:disabled):hover {
+  background-color: green;
+  cursor: pointer;
+}
+
+
+
+#kkpaybtn:disabled {
+  background-color: red; 
+  cursor: not-allowed; 
+}
+
+#kkpaybtn:not(:disabled):hover {
+  background-color: green; 
+  cursor: pointer; 
 }
