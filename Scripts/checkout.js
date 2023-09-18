@@ -14,6 +14,9 @@ document.getElementById("kkpaybtn").addEventListener("click", function (e) {
     name: "Green Paradise",
     description: "Payment for your order",
     image: "../images/logo.png",
+    handler: function(response) {         
+      window.location.href = '/index.html';
+    },
 
     prefill: {
       name: "",
@@ -26,6 +29,7 @@ document.getElementById("kkpaybtn").addEventListener("click", function (e) {
   };
 
   var rzp = new Razorpay(options);
+
 
   rzp.open();
   e.preventDefault();
@@ -59,18 +63,12 @@ document.getElementById("kkbackbtn").addEventListener("click", () => {
   menu2.style.display = "block";
 });
 
-// Green-Paradise\HTML\images\5-kg-cow-manure.webp
-//let arr = JSON.parse(localStorage.getItem("product_list"))||[];
-
-// console.log(products)
 
 let productContainer = document.getElementById("kkrightcontent");
 let itemImg = document.getElementById("itemImg");
 let details = document.getElementById("itemDetails");
 let totalAmt = document.getElementById("totalAmt");
 let totalAmount = 0;
-
-// let no = products.length;
 
 function updateTotalAmount() {
   payable =
@@ -208,7 +206,6 @@ function displayData(products) {
 
     container.append(imgdiv, detailsdiv);
     details.append(container);
-    // productContainer.append(details);
   });
 }
 
@@ -217,3 +214,66 @@ let delivery = document.getElementById("deliveryCharge");
 totalAmt.textContent =
   "Rs. " +
   (totalAmount + Number(sale.textContent) + Number(delivery.textContent));
+
+
+// Validation
+var inputFields = document.querySelectorAll('.kkinputfields input');
+var continueButton = document.getElementById('kkcont');
+
+// Function to check if any input field is empty
+function checkInputs() {
+  let isEmailValid = true;
+  for (var i = 0; i < inputFields.length; i++) {
+    if (inputFields[i].value === '') {
+      continueButton.disabled = true; // Disable the "Continue" button
+      return;
+    }
+  }
+  const emailInput = document.getElementById('email'); // Assuming the email input has the id "email"
+  if (!emailInput.value.includes('@') || !emailInput.value.includes('gmail')  || !emailInput.value.includes('.com')) {
+    isEmailValid = false;
+  }
+  continueButton.disabled = !isEmailValid; // Enable the "Continue" button
+}
+
+for (var i = 0; i < inputFields.length; i++) {
+  inputFields[i].addEventListener('input', checkInputs);
+}
+checkInputs();
+
+var countryInput = document.getElementById('country');
+var stateInput = document.getElementById('indian-states');
+var cityInput = document.getElementById('city');
+var pinInput = document.getElementById('pin');
+var payButton = document.getElementById('kkpaybtn');
+
+function checkInputsForDelivery() {
+  const countryValue = countryInput.value;
+  const stateValue = stateInput.value;
+  const cityValue = cityInput.value;
+  const pinValue = pinInput.value;
+
+  const isPinValid = /^[0-9]{6}$/.test(pinValue); // Check if pin is 6 digits
+
+  // Check if any input field is empty or the pin is not valid
+  if (
+    countryValue === '' ||
+    stateValue === '' ||
+    cityValue === '' ||
+    pinValue === '' ||
+    !isPinValid
+  ) {
+    payButton.disabled = true; // Disable the "Proceed to Pay" button
+  } else {
+    payButton.disabled = false; // Enable the "Proceed to Pay" button
+  }
+}
+
+// Add event listeners to the input fields
+countryInput.addEventListener('input', checkInputsForDelivery);
+stateInput.addEventListener('input', checkInputsForDelivery);
+cityInput.addEventListener('input', checkInputsForDelivery);
+pinInput.addEventListener('input', checkInputsForDelivery);
+
+// Initial check on page load
+checkInputsForDelivery();

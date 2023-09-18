@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>CheckOut</title>
     <link rel="stylesheet" href="./Styles/checkout.css" />
     <link
       rel="stylesheet"
@@ -38,6 +38,7 @@
             alt=""
           />
         </div>
+      
 
         <div id="kkpersonalInfoCont">
           <h3>Personal Info</h3>
@@ -48,21 +49,15 @@
             </div>
             <div class="kkdetails">
               <input type="number" placeholder="Number" required />
-              <input type="text" placeholder="email" required />
+              <input type="text" placeholder="email" id="email" />
             </div>
           </div>
-
-          <!-- <div class="kkbelow">
-        <h4>Add a comment to the order</h4> 
-        <div id="">
-
-        </div>       
-    </div> -->
 
           <div class="checkbox">
             <input type="checkbox" id="input_checkbox" title="a" />
             <div>You can not call me to confirm your order</div>
           </div>
+          
           <div>
             <button id="kkcont">Continue</button>
           </div>
@@ -70,7 +65,7 @@
 
         <div id="kkdelivery">
           <h3>Delivery Address</h3>
-          <input type="text" placeholder="Country" required />
+          <input type="text" id="country" placeholder="Country" required/>
           <select id="indian-states" title="a">
             <option value="">Select State</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -104,8 +99,8 @@
           </select>
 
           <div class="kkcity">
-            <input type="text" placeholder="City" required />
-            <input type="number" placeholder="PIN" required />
+            <input type="text" id="city" placeholder="City" required/>
+            <input type="number" id="pin" placeholder="PIN" required/>
           </div>
 
           <div class="kkbuttons">
