@@ -426,7 +426,9 @@ const analytics = getAnalytics(app);
 const auth = getAuth();
 //-------------------------SignUp------------------------------>>
 let signup_by_email = document.getElementById("signup_by_email");
-signup_by_email.addEventListener("click", () => {
+console.log(signup_by_email);
+signup_by_email.addEventListener("click", (event) => {
+  event.preventDefault();
   let email = document.getElementById("email2").value;
   let password = document.getElementById("confirmpassword").value;
   let username = document.getElementById("username").value;
@@ -468,7 +470,8 @@ signup_by_email.addEventListener("click", () => {
 
 //--------------------------------Login------------------------>>
 let signin_button = document.getElementById("signin_button");
-signin_button.addEventListener("click", () => {
+signin_button.addEventListener("click", (event) => {
+  event.preventDefault();
   let email = document.getElementById("email1").value;
   let password = document.getElementById("password1").value;
 
