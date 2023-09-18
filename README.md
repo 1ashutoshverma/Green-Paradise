@@ -1,4 +1,4 @@
-# Plantify - E-commerce Website for Plants
+# Green Paradise - A Breath of Fresh Air
 
 ![Plantify Logo](./Images/logo_green_heaven.png)
 
@@ -30,8 +30,9 @@ Green Paradise is a fully functional e-commerce website designed for plant enthu
 - Admin dashboard for managing products and orders.
 - Responsive design for mobile and desktop users.
 
-## [Screenshots](#screenshots)
-- Desktop : ![Alt Text](./Images/Home-Page_Desktop.png)
-- Laptop : ![Alt Text](./Images/Home-Page_Laptop.png)
-- Tablet : ![Alt Text](./Images/Home-Page_Tablet.png)
-- Mobile : ![Alt Text](./Images/Home-Page_Mobile.png)
+## Screenshots
+  Screenshots of the Home page on different devices are given below.
+- [Desktop](https://github.com/1ashutoshverma/Green-Paradise/blob/6a494c62eccc1e923fcc8e9efa428afe74793923/Images/Home-Page_Desktop.png)
+- [Laptop](./Images/Home-Page_Laptop.png)
+- [Tablet](./Images/Home-Page_Tablet.png)
+- [Mobile](./Images/Home-Page_Mobile.png)
