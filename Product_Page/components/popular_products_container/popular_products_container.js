@@ -344,7 +344,7 @@ let popularProductsRender = (pre = "", start = 0) => {
       setTimeout(() => {
         svgContainers.innerHTML = innerHTML;
         svgContainers.disabled = false;
-      }, 750);
+      }, 200);
       console.log(cart, curr);
     };
     productInfoContainer.appendChild(productInfoLeft);

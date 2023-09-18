@@ -194,7 +194,7 @@ function displayData(products) {
       document.getElementById("quantity_smallscreen").textContent = netqty;
       // qty.textContent = netqty;
       // //
-      products.splice(idx, 1);
+      products=products.filter(el=>el.img!==product.img) 
       localStorage.setItem("cart", JSON.stringify(products));
       container.remove();
       if (products.length <= 0) {
