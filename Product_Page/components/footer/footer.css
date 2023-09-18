@@ -52,6 +52,9 @@
   align-items: center !important;
   border: none !important;
 }
+#scroll_2_top:hover{
+    background-color: rgb(94, 145, 165) !important;
+}
 
 #scroll_2_top svg {
   max-height: 66% !important;
@@ -71,7 +74,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
-    .footer *{
+    .footer>*{
       margin: auto;
     }
     #scroll_2_top {

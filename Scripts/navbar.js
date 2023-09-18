@@ -35,7 +35,7 @@ function navbarBigscreen() {
         <div class="icon_bigscreen">
           <img src="/Images/navbar_images/bucket-icon.svg" alt="" />
         </div>
-        <div>0</div>
+        <div id="quantity_bigscreen">0</div>
       </div>
     </div>
     </div>
@@ -89,7 +89,7 @@ function navbarSmallscreen() {
           <div class="icon_bigscreen">
             <img src="/Images/navbar_images/bucket-icon.svg" alt="" />
           </div>
-          <div>0</div>
+          <div id="quantity_smallscreen">0</div>
         </div>
       </a>
     </div>
@@ -182,7 +182,7 @@ function loginScreen() {
     >Forgot password?</a
   >
   
-  <p id="account_create">New here?<span id="go_to_from_login" class="buttons_log"> Create an account</span></p>
+  <p class="account_create">New here?<span id="go_to_from_login" class="buttons_log"> Create an account</span></p>
 </div>`;
 }
 
@@ -226,11 +226,18 @@ function signupScreen() {
     <div class="child">
       <button class="ls_btn" type="submit" id="signup_by_email">CONTINUE</button>
     </div>
-    <p id="go_to_from_sign_up" class="buttons_log">Login</p>
+
+    
+    <p class="account_create">Already a user? <span id="go_to_from_sign_up" class="buttons_log"> Login </span></p>
+    
   </form>
 </div>`;
 }
+{
+  /* <p id="account_create">New here?<span id="go_to_from_login" class="buttons_log"> Create an account</span></p>
 
+<p id="go_to_from_sign_up" class="buttons_log">Login</p> */
+}
 navbarBigscreen();
 navbarSmallscreen();
 loginScreen();
@@ -239,6 +246,16 @@ signupScreen();
 //------------------- routing of pages --------------------------->>
 document.getElementById("cart_bigscreen").addEventListener("click", () => {
   window.location = "/checkout.html";
+});
+// --------------------------quantity big screen----------------->>
+let productsQty = JSON.parse(localStorage.getItem("cart")) || [];
+let qty = document.getElementById("quantity_bigscreen");
+let qty2 = document.getElementById("quantity_smallscreen");
+let netqty = 0;
+productsQty.forEach((ele) => {
+  netqty = netqty + Number(ele.qty);
+  qty.textContent = netqty;
+  qty2.textContent = netqty;
 });
 //------------------------Big screen functionality -------------------------->>
 document
@@ -1018,7 +1035,7 @@ input.addEventListener("input", (event) => {
             cartData = ele;
             localStorage.setItem("Current_Product", JSON.stringify(cartData));
             //give the location of description page
-            window.location = "./index.html";
+            window.location = "/Product_Page/Product_Detail_Page.html";
           });
           mainDiv.append(div);
           console.log(ele);
@@ -1061,7 +1078,7 @@ input_smallScreen.addEventListener("input", (event) => {
             cartData = ele;
             localStorage.setItem("Current_Product", JSON.stringify(cartData));
             //give the location of description page
-            window.location = "./index.html";
+            window.location = "/Product_Page/Product_Detail_Page.html";
           });
           mainDiv.append(div);
           console.log(ele);
