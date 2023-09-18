@@ -148,6 +148,48 @@ h3 {
   }
 } */
 
+.mainEmptyDiv {
+  width: 38%;
+}
+
+/* .imgEmptyDiv {
+
+} */
+
+.imgEmptyDiv img {
+  width: 100%;
+  /* filter: contrast(green); */
+  filter: saturate(200%);
+
+  /* Adjust the hue to make the image appear green */
+  filter: hue-rotate(-60deg);
+}
+
+.mainEmptyDiv h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #486e00;
+}
+.mainEmptyDiv a {
+  text-decoration: none;
+  /* border: 1px solid red; */
+  background-color: #486e00;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.mainEmptyDiv a:hover {
+  background-color: #72ac08;
+}
+.link_catalog {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+/* #itemPricing {
+} */
 #itemDetails {
   display: flex;
   flex-direction: column;

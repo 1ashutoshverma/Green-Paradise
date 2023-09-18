@@ -81,6 +81,40 @@ function updateTotalAmount() {
   localStorage.setItem("totalAmount", JSON.stringify(payable));
 }
 
+// if card is empty
+if (products.length > 0) {
+  displayData(products);
+} else {
+  emptyCard();
+}
+
+function emptyCard() {
+  document.querySelector("#kkcontainer").innerHTML = "";
+  // document.querySelector(".itemPricing").innerHTML = "";
+
+  let mainDiv = document.createElement("div");
+  mainDiv.className = "mainEmptyDiv";
+
+  let imgDiv = document.createElement("div");
+  imgDiv.className = "imgEmptyDiv";
+  let img = document.createElement("img");
+  img.src = "/Images/cart_checkout/emptyCart.png";
+
+  let h3 = document.createElement("h3");
+  h3.textContent = "Your cart is Empty";
+
+  let linkDiv = document.createElement("div");
+  linkDiv.className = "link_catalog";
+  let link = document.createElement("a");
+  link.innerText = "Go to Catalog";
+  link.setAttribute("href", "/Product_Page/index.html");
+
+  linkDiv.append(link);
+  imgDiv.append(img);
+  mainDiv.append(imgDiv, h3, linkDiv);
+  document.querySelector("#kkcontainer").append(mainDiv);
+}
+
 function displayData(products) {
   products.forEach((product, idx) => {
     let container = document.createElement("div");
@@ -163,6 +197,9 @@ function displayData(products) {
       products.splice(idx, 1);
       localStorage.setItem("cart", JSON.stringify(products));
       container.remove();
+      if (products.length <= 0) {
+        emptyCard();
+      }
     };
 
     quantityBox.append(minus, qty, plus, deleteItem);
@@ -174,8 +211,6 @@ function displayData(products) {
     // productContainer.append(details);
   });
 }
-
-displayData(products);
 
 let sale = document.getElementById("salesPrice");
 let delivery = document.getElementById("deliveryCharge");
