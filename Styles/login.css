@@ -169,7 +169,7 @@
   border-radius: 5px;
 }
 
-button:hover {
+.parent button:hover {
   background-color: rgb(94, 145, 165);
 }
 div > button > a {
