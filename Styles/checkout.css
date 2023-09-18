@@ -13,7 +13,6 @@
 }
 /* ------------------------------ */
 
-
 #kkcontainer {
   padding-top: 65px;
   width: 90%;
@@ -152,11 +151,8 @@ h3 {
 
 .mainEmptyDiv {
   width: 38%;
+  margin: auto;
 }
-
-/* .imgEmptyDiv {
-
-} */
 
 .imgEmptyDiv img {
   width: 100%;
@@ -309,6 +305,9 @@ body {
     width: 101%;
     margin-top: 20px;
   }
+  .mainEmptyDiv h3 {
+    font-size: 1.2rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -326,12 +325,14 @@ body {
     display: flex;
     flex-direction: column;
   }
+  .mainEmptyDiv h3 {
+    font-size: 1rem;
+  }
 }
 
-
 #kkcont:disabled {
-  background-color: red; 
-  cursor: not-allowed; 
+  background-color: red;
+  cursor: not-allowed;
 }
 
 #kkcont:not(:disabled):hover {
@@ -339,14 +340,12 @@ body {
   cursor: pointer;
 }
 
-
-
 #kkpaybtn:disabled {
-  background-color: red; 
-  cursor: not-allowed; 
+  background-color: red;
+  cursor: not-allowed;
 }
 
 #kkpaybtn:not(:disabled):hover {
-  background-color: green; 
-  cursor: pointer; 
+  background-color: green;
+  cursor: pointer;
 }

@@ -75,6 +75,7 @@ body {
 #search_bigscreen input {
   outline: none;
   border: none;
+  padding: 0;
   padding-bottom: 5px;
   width: 90%;
 }
