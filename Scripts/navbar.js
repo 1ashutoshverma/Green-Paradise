@@ -430,36 +430,40 @@ signup_by_email.addEventListener("click", () => {
   let email = document.getElementById("email2").value;
   let password = document.getElementById("confirmpassword").value;
   let username = document.getElementById("username").value;
-  console.log(username);
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
+  // let pass = document.getElementById("password").value;
 
-      userData = {
-        username: username,
-        login_status: "loggedIn",
-      };
-      signup_screen.style.display = "";
-      document.getElementById("user_dropdown_bigscreen").innerText =
-        userData.username;
-      document.getElementById("mobile_username").textContent =
-        userData.username;
-      document.getElementById("login1_bigscreen").style.display = "";
-      document.getElementById("login2_bigscreen").style.display = "flex";
-      document.getElementById("login1_smallscreen").style.display = "";
-      document.getElementById("login2_smallscreen").style.display = "flex";
-      document.getElementById("logout_button_mobile").style.display = "block";
-      localStorage.setItem("userData", JSON.stringify(userData));
-      console.log(user);
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert("credentials are wrong!");
-      // ..
-    });
+  if (email != "" && password != "" && username != "") {
+    console.log(username);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+
+        userData = {
+          username: username,
+          login_status: "loggedIn",
+        };
+        signup_screen.style.display = "";
+        document.getElementById("user_dropdown_bigscreen").innerText =
+          userData.username;
+        document.getElementById("mobile_username").textContent =
+          userData.username;
+        document.getElementById("login1_bigscreen").style.display = "";
+        document.getElementById("login2_bigscreen").style.display = "flex";
+        document.getElementById("login1_smallscreen").style.display = "";
+        document.getElementById("login2_smallscreen").style.display = "flex";
+        document.getElementById("logout_button_mobile").style.display = "block";
+        localStorage.setItem("userData", JSON.stringify(userData));
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("You have already signed up, please login!");
+        // ..
+      });
+  }
 });
 
 //--------------------------------Login------------------------>>
@@ -467,36 +471,39 @@ let signin_button = document.getElementById("signin_button");
 signin_button.addEventListener("click", () => {
   let email = document.getElementById("email1").value;
   let password = document.getElementById("password1").value;
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
 
-      let name = userData.username;
+  if (email != "" && password != "") {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
 
-      userData = {
-        username: name,
-        login_status: "loggedIn",
-      };
-      login_screen.style.display = "";
-      document.getElementById("user_dropdown_bigscreen").innerText =
-        userData.username;
-      document.getElementById("mobile_username").textContent =
-        userData.username;
-      document.getElementById("login1_bigscreen").style.display = "";
-      document.getElementById("login2_bigscreen").style.display = "flex";
-      document.getElementById("login1_smallscreen").style.display = "";
-      document.getElementById("login2_smallscreen").style.display = "flex";
-      document.getElementById("logout_button_mobile").style.display = "block";
-      localStorage.setItem("userData", JSON.stringify(userData));
-      console.log(user);
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert("credentials are wrong!");
-    });
+        let name = userData.username;
+
+        userData = {
+          username: name,
+          login_status: "loggedIn",
+        };
+        login_screen.style.display = "";
+        document.getElementById("user_dropdown_bigscreen").innerText =
+          userData.username;
+        document.getElementById("mobile_username").textContent =
+          userData.username;
+        document.getElementById("login1_bigscreen").style.display = "";
+        document.getElementById("login2_bigscreen").style.display = "flex";
+        document.getElementById("login1_smallscreen").style.display = "";
+        document.getElementById("login2_smallscreen").style.display = "flex";
+        document.getElementById("logout_button_mobile").style.display = "block";
+        localStorage.setItem("userData", JSON.stringify(userData));
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("Email or password is wrong!");
+      });
+  }
 });
 
 // ---------------------logout-------------------->>

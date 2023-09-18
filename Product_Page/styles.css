@@ -101,7 +101,7 @@ footer * {
   font-family: "ClashDisplay Regular", sans-serif;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 750px) {
   #body {
     width: 90%;
     margin: auto;
@@ -111,9 +111,6 @@ footer * {
   }
   #products_container {
     grid-template-columns: repeat(2, 1fr);
-  }
-  #product_container {
-    width: 30vw;
   }
   #content {
     display: flex;
@@ -129,7 +126,7 @@ footer * {
     flex-direction: row;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 400px) {
   #body {
     width: 95%;
     margin: auto;
