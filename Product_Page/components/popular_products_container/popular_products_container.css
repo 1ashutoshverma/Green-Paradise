@@ -7,13 +7,14 @@
   font-family: "ClashDisplay Regular";
   src: url("../../fonts/ClashDisplay-Regular.otf") format("opentype");
 }
+#popularProducts{
+  margin: auto;
+}
 #popularProducts_body {
-
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     margin-bottom: 30px;
-
 }
 #heading {
   font-family: "ClashDisplay SemiBold", sans-serif !important;
@@ -36,6 +37,7 @@
 }
 
 .product_container {
+  height: 33vw;
     background-color: #fdfce2;
 }
 .product_img_container {
@@ -64,6 +66,9 @@
     background-color: #486e00;
 }
 @media screen and (max-width:1000px) {
+  .product_container {
+      height: 61vw;
+    }
   #popularProducts_head {
     display: flex;
     justify-content: space-around;
@@ -88,7 +93,7 @@
   }
 
   #popularProducts_body img {
-    height: 50vh;
+    height: 60%;
   }
 
   #heading {
@@ -96,6 +101,9 @@
   }
 }
 @media screen and (max-width:750px) {
+  .product_container {
+      height: 73vw;
+    }
   #popularProducts_head{
     display: flex;
     justify-content: space-around;
@@ -118,11 +126,6 @@
           font-size: 24px;
     }
 }
-#popularProducts_head {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
 @media screen and (max-width:400px) {
   body{
     width: 90%;
@@ -139,8 +142,8 @@
         gap: 10px;
         margin: auto;
     }
-    #products_container {
-            grid-template-columns: repeat(1, 1fr);
+    .product_container {
+           height: max-content;
     }
 }
 
