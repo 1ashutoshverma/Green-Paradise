@@ -74,8 +74,13 @@
   position: relative;
 }
 .product_container {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  box-shadow: none 0px 20px 25px -5px, none 0px 10px 10px -5px;
   background-color: #fdfce2;
+  transition: all .25s;
+}
+
+.product_container:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
 .product_img_container svg {

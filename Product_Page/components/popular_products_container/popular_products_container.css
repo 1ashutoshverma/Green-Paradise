@@ -10,6 +10,16 @@
 #popularProducts{
   margin: auto;
 }
+.product_container {
+  box-shadow: none 0px 20px 25px -5px, none 0px 10px 10px -5px;
+  background-color: #fdfce2;
+  transition: all .5s;
+}
+
+.product_container:hover {
+  transform: scale(1.01);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
 #popularProducts_body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -81,6 +91,7 @@ border: 1px white;
   #popularProducts_head img {
     width: 300px;
   }
+
 
   p {
     font-size: 14px;
