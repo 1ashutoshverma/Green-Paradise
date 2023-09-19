@@ -37,7 +37,7 @@ Green Paradise is a fully functional e-commerce website designed for plant enthu
 - [Tablet](./Images/Home-Page_Tablet.png)
 - [Mobile](./Images/Home-Page_Mobile.png)
 ## Contributors
-- Ashutosh Verma (Repository Owner)
-- Dipanshu Singh [LinkedIn](https://www.linkedin.com/in/dipanshu-singh-645821153) [Github](https://github.com/Dipanshu-Singh-Dev)
-- Kumod Kumar Sharma [LinkedIn](https://www.linkedin.com/in/kumod-kumar-sharma-18356521a) [Github](https://github.com/kumod1164)
-- Madhu Sudhan
+- Ashutosh Verma : [LinkedIn](https://www.linkedin.com/in/ashutosh-verma-6420b4272/) [Github](https://github.com/1ashutoshverma/)
+- Dipanshu Singh : [LinkedIn](https://www.linkedin.com/in/dipanshu-singh-645821153) [Github](https://github.com/Dipanshu-Singh-Dev)
+- Kumod Kumar Sharma : [LinkedIn](https://www.linkedin.com/in/kumod-kumar-sharma-18356521a) [Github](https://github.com/kumod1164)
+- Madhu Sudhan : [LinkedIn](https://www.linkedin.com/in/madhu-sudhan-794a91283/) [Github](https://github.com/MadhuSudhanAlukuntla)
