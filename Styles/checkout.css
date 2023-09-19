@@ -14,7 +14,7 @@
 /* ------------------------------ */
 
 #kkcontainer {
-  padding-top: 65px;
+  padding-top: 80px;
   width: 90%;
   margin: auto;
   display: flex;
@@ -28,6 +28,7 @@ input {
   width: 250px;
 }
 #indian-states {
+  border: 1px solid red;
   border-radius: 8px;
   border: 2px solid grey;
   padding: 12px;
@@ -117,7 +118,7 @@ h3 {
 
 .kkcontImg {
   width: 150px;
-  margin-top: -80px;
+margin-top: -400px;
 }
 .kkcontImg2 {
   width: 190px;
@@ -255,11 +256,15 @@ h3 {
 .minus {
   border-radius: 5px;
   border: none;
-  background-color: green;
+  background-color: rgb(95, 98, 98);
   color: white;
   padding: 0px 3px;
 }
-
+.red-button {
+  color: white;
+  background-color: red;
+  cursor: not-allowed;
+}
 .plus {
   border-radius: 5px;
   border: none;
@@ -298,11 +303,20 @@ body {
     display: flex;
     flex-direction: column;
   }
+  #kkpaybtn{
+      width: 100%;
+  }
+  #kkbackbtn{
+    width: 100%;
+  }
+  #kkcont{
+    width: 100%;
+  }
   #indian-states {
     border-radius: 8px;
     border: 2px solid grey;
-    padding: 3px;
-    width: 101%;
+    padding: 10px;
+    width: 102.5%;
     margin-top: 20px;
   }
   .mainEmptyDiv h3 {

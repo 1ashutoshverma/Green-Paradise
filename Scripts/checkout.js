@@ -151,10 +151,13 @@ function displayData(products) {
     minus.innerHTML = `<i class="fa-solid fa-minus"></i>`;
     minus.setAttribute("class", "minus");
     minus.onclick = () => {
-      if (count == 1) {
+      if (count === 1) {
+        minus.classList.add("red-button");
+        minus.disabled = true; 
         return;
-      } else {
-        //
+      } else {  
+        minus.classList.remove("red-button"); 
+         minus.disabled = false; 
         netqty = netqty - 1;
         document.getElementById("quantity_bigscreen").textContent = netqty;
         document.getElementById("quantity_smallscreen").textContent = netqty;
