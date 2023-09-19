@@ -32,7 +32,7 @@ Green Paradise is a fully functional e-commerce website designed for plant enthu
 
 ## Screenshots
   Screenshots of the Home page on different devices are given below.
-- [Desktop](https://github.com/1ashutoshverma/Green-Paradise/blob/6a494c62eccc1e923fcc8e9efa428afe74793923/Images/Home-Page_Desktop.png)
+- [Desktop](./Images/Home-Page_Desktop.png)
 - [Laptop](./Images/Home-Page_Laptop.png)
 - [Tablet](./Images/Home-Page_Tablet.png)
 - [Mobile](./Images/Home-Page_Mobile.png)
