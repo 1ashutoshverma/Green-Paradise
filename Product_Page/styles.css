@@ -6,6 +6,9 @@
   font-family: "ClashDisplay Regular";
   src: url("./fonts/ClashDisplay-Regular.otf") format("opentype");
 }
+html{
+  scroll-behavior: smooth;
+}
 * {
   font-family: "ClashDisplay Regular", sans-serif;
 }

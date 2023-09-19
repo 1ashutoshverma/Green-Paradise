@@ -150,3 +150,5 @@ for(let elem of document.getElementsByClassName('catalog_link')){
 }
 prevPopProd.disabled = true;
 prevPopProd.style.backgroundColor = "lightgray";
+
+document.getElementById('scroll_2_Top').addEventListener('click',()=>setTimeout(()=>window.scrollTo(0,0),200))
