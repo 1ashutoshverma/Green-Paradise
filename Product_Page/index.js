@@ -1,17 +1,21 @@
 import { navbarBigscreen, navbarSmallscreen } from "../Scripts/navbar.js";
+
 import footer from "./components/footer/footer.js";
 import products, {
   render,
 } from "./components/product_container/product_container.js";
 import popularProducts, {
-  popularProductsRender
+  popularProductsRender,
 } from "./components/popular_products_container/popular_products_container.js";
 let body = document.querySelector("body");
-let i = 1,throttler = false;
+let i = 1,
+  throttler = false;
 window.onscroll = () => {
-  if(throttler)return;
-  throttler=true;
-  setTimeout(()=>{throttler=false},250)
+  if (throttler) return;
+  throttler = true;
+  setTimeout(() => {
+    throttler = false;
+  }, 250);
   if (Math.ceil(window.scrollY) > i * 700) {
     console.log(Math.ceil(window.scrollY));
     start = render(data, start, 6, "scroll");
@@ -30,28 +34,28 @@ houseplantFilter.onchange = () => {
   houseplants = !houseplants;
   data = sortNfilter();
   start = render(data, 0);
-  i=1;
+  i = 1;
 };
 
 let priceRangeFilter = document.getElementById("price_range_filter");
 priceRangeFilter.onchange = () => {
   data = sortNfilter();
   start = render(data, 0);
-  i=1;
+  i = 1;
 };
 let houseplantSetsFilter = document.getElementById("houseplant_set_filter");
 houseplantSetsFilter.onchange = () => {
   houseplant_sets = !houseplant_sets;
   data = sortNfilter();
   start = render(data, 0);
-  i=1;
+  i = 1;
 };
 let flowerpotFilter = document.getElementById("flowerpot_filter");
 flowerpotFilter.onchange = () => {
   flowerpots = !flowerpots;
   data = sortNfilter();
   start = render(data, 0);
-  i=1;
+  i = 1;
 };
 let soilFertilizerFilter = document.getElementById(
   "soil_and_fertilizers_filter"
@@ -60,13 +64,13 @@ soilFertilizerFilter.onchange = () => {
   soil_fertilizers = !soil_fertilizers;
   data = sortNfilter();
   start = render(data, 0);
-  i=1;
+  i = 1;
 };
 let sorting = document.getElementById("sorting");
 sorting.onchange = () => {
   data = sortNfilter();
   start = render(data, 0);
-  i=1;
+  i = 1;
 };
 document.getElementById("reset_filters").onclick = () => {
   if (houseplants) houseplantFilter.click();
@@ -106,10 +110,8 @@ let productSort = (data) => {
   if (val === "atoz") return temp.sort((a, b) => a.name.localeCompare(b.name));
   else if (val === "ztoa")
     return temp.sort((a, b) => -a.name.localeCompare(b.name));
-  else if (val === "lowtohigh")
-    return temp.sort((a, b) => a.price - b.price);
-  else if (val === "hightolow")
-    return temp.sort((a, b) => b.price - a.price);
+  else if (val === "lowtohigh") return temp.sort((a, b) => a.price - b.price);
+  else if (val === "hightolow") return temp.sort((a, b) => b.price - a.price);
   else return temp;
 };
 let nextPopProd = document.getElementById("next_popular_product");
@@ -118,7 +120,7 @@ let prevPopProd = document.getElementById("prev_popular_product");
 let popStart = 0;
 
 nextPopProd.onclick = () => {
-  popStart = popularProductsRender("",popStart, 4);
+  popStart = popularProductsRender("", popStart, 4);
   if (popStart >= popularProducts.length) {
     nextPopProd.disabled = true;
     nextPopProd.style.backgroundColor = "lightgray";
@@ -130,7 +132,7 @@ nextPopProd.onclick = () => {
 };
 
 prevPopProd.onclick = () => {
-  popStart = popularProductsRender("",popStart - 6, 4);
+  popStart = popularProductsRender("", popStart - 6, 4);
   if (popStart == 0 || popStart == 4) {
     prevPopProd.disabled = true;
     prevPopProd.style.backgroundColor = "lightgray";
@@ -142,11 +144,11 @@ prevPopProd.onclick = () => {
 };
 window.onload = () => {
   start = render(products, 0);
-  popStart = popularProductsRender("./",popStart, 4);
+  popStart = popularProductsRender("./", popStart, 4);
 };
-for(let elem of document.getElementsByClassName('catalog_link')){
-  elem.disabled=true;
-  elem.style.color="darkgray"
+for (let elem of document.getElementsByClassName("catalog_link")) {
+  elem.disabled = true;
+  elem.style.color = "darkgray";
 }
 prevPopProd.disabled = true;
 prevPopProd.style.backgroundColor = "lightgray";
