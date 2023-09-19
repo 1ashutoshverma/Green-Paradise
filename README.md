@@ -26,7 +26,6 @@ Green Paradise is a fully functional e-commerce website designed for plant enthu
 - Calculate and display the total order price.
 - Complete the purchase with secure checkout.
 - User account creation and login.
-- Admin dashboard for managing products and orders.
 - Responsive design for mobile and desktop users.
 
 ## Screenshots
