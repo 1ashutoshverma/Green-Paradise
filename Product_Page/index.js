@@ -15,7 +15,7 @@ window.onscroll = () => {
   throttler = true;
   setTimeout(() => {
     throttler = false;
-  }, 250);
+  }, 100);
   if (Math.ceil(window.scrollY) > i * 700) {
     console.log(Math.ceil(window.scrollY));
     start = render(data, start, 6, "scroll");
