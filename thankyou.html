@@ -132,6 +132,12 @@
 	animation: explosion 2s .4s ease-in-out infinite;
 }
 
+h3{
+  width: 80%;
+  text-align: end;
+  color: green;
+
+}
 
     </style>
   </head>
@@ -196,6 +202,10 @@
         <img src="/Images/thankYou.png" alt="">
     </div>
 
+    <div>
+        <h3>You are being redirected to Homepage in <span id="timer"></span> seconds !</h3>
+    </div>
+
     <div id="footer"></div>
   </body>
 </html>
@@ -207,7 +217,18 @@ import { navbarBigscreen, navbarSmallscreen } from "/Scripts/navbar.js";
 import footer from "../Product_Page/components/footer/footer.js";
 document.getElementById("footer").innerHTML = footer();
 
-setTimeout(()=>{
-        window.location.href='/index.html'
-    },5000);
+
+let timerElement = document.getElementById("timer");
+        let count = 5;
+        function countdown() {
+            timerElement.textContent = count;
+            count--;
+
+            if (count < 0) {                
+                window.location.href = "index.html";
+            } else {
+                setTimeout(countdown, 1000); 
+            }
+        }
+        countdown();
 </script>
