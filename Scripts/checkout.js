@@ -17,6 +17,7 @@ if (products.length > 0) {
 
 document.getElementById("kkpaybtn").addEventListener("click", function (e) {
   payable = JSON.parse(localStorage.getItem("totalAmount")) || 0;
+
   var options = {
     key: "rzp_test_PuIvwrP2D7FLip",
     amount: payable * 100, // Amount in paise (100 paise = 1 INR)
@@ -29,7 +30,7 @@ document.getElementById("kkpaybtn").addEventListener("click", function (e) {
       document.getElementById("quantity_smallscreen").textContent = 0;
       products = [];
       localStorage.setItem("cart", JSON.stringify(products));
-      window.location.href = "/index.html";
+      window.location.href = "/thankyou.html";
     },
 
     prefill: {
@@ -152,11 +153,9 @@ function displayData(products) {
     minus.setAttribute("class", "minus");
     minus.onclick = () => {
       if (count === 1) {
-        minus.classList.add("red-button");
         minus.disabled = true; 
         return;
       } else {  
-        minus.classList.remove("red-button"); 
          minus.disabled = false; 
         netqty = netqty - 1;
         document.getElementById("quantity_bigscreen").textContent = netqty;
