@@ -277,6 +277,15 @@ document
   .addEventListener("click", () => {
     window.location = "/index.html";
   });
+document
+  .getElementById("cart_dropdown_bigscreen")
+  .addEventListener("click", () => {
+    window.location = "/checkout.html";
+  });
+
+document.getElementById("cart_smallscreen").addEventListener("click", () => {
+  window.location = "/checkout.html";
+});
 
 document
   .getElementById("login2_bigscreen_dropdown")
