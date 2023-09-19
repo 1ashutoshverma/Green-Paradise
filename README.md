@@ -1,6 +1,6 @@
 # Green Paradise - A Breath of Fresh Air
 
-![Plantify Logo](./Images/logo_green_heaven.png)
+![Green Paradise Logo](./Images/logo_green_heaven.png)
 
 ## Table of Contents
 
@@ -8,7 +8,7 @@
 2. [Demo](#demo)
 3. [Features](#features)
 4. [Screenshots](#screenshots)
-5. [Authors](#authors)
+5. [Contributors](#authors)
 
 ## Description
 
@@ -36,3 +36,9 @@ Green Paradise is a fully functional e-commerce website designed for plant enthu
 - [Laptop](./Images/Home-Page_Laptop.png)
 - [Tablet](./Images/Home-Page_Tablet.png)
 - [Mobile](./Images/Home-Page_Mobile.png)
+## Contributors
+- Ashutosh Verma (Repository Owner)
+- Dipanshu Singh [LinkedIn](https://www.linkedin.com/in/dipanshu-singh-645821153) [Github] (https://github.com/Dipanshu-Singh-Dev)
+- Madhu Sudhan [LinkedIn](https://www.linkedin.com/in/kumod-kumar-sharma-18356521a) [Github](https://github.com/kumod1164)
+- Kumod Kumar Sharma
+

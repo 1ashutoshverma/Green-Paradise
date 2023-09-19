@@ -37,7 +37,6 @@
 }
 
 .product_container {
-  height: 33vw;
   background-color: #fdfce2;
 }
 .product_img_container {
@@ -69,9 +68,7 @@ border: 1px white;
     background-color: #486e00;
 }
 @media screen and (max-width:1000px) {
-  .product_container {
-      height: 61vw;
-    }
+  
   #popularProducts_head {
     display: flex;
     justify-content: space-around;
@@ -104,9 +101,7 @@ border: 1px white;
   }
 }
 @media screen and (max-width:750px) {
-  .product_container {
-      height: 73vw;
-    }
+  
   #popularProducts_head{
     display: flex;
     justify-content: space-around;
@@ -140,9 +135,6 @@ border: 1px white;
         grid-template-columns: repeat(1, 1fr);
         gap: 10px;
         margin: auto;
-    }
-    .product_container {
-           height: max-content;
     }
 }
 

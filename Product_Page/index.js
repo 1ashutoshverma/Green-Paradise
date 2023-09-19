@@ -40,14 +40,14 @@ priceRangeFilter.onchange = () => {
   i=1;
 };
 let houseplantSetsFilter = document.getElementById("houseplant_set_filter");
-houseplantSetsFilter.onchange = () => {
+houseplantSetsFilter.onclick = () => {
   houseplant_sets = !houseplant_sets;
   data = sortNfilter();
   start = render(data, 0);
   i=1;
 };
 let flowerpotFilter = document.getElementById("flowerpot_filter");
-flowerpotFilter.onchange = () => {
+flowerpotFilter.onclick = () => {
   flowerpots = !flowerpots;
   data = sortNfilter();
   start = render(data, 0);
@@ -56,7 +56,7 @@ flowerpotFilter.onchange = () => {
 let soilFertilizerFilter = document.getElementById(
   "soil_and_fertilizers_filter"
 );
-soilFertilizerFilter.onchange = () => {
+soilFertilizerFilter.onclick = () => {
   soil_fertilizers = !soil_fertilizers;
   data = sortNfilter();
   start = render(data, 0);
