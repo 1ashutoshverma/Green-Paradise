@@ -1,6 +1,7 @@
-# SAW - Your Ultimate Tech Haven
+# Green Paradise - A Breath of Fresh Air
 
-![Green Paradise Electronics Logo](./Images/logo_green_heaven.png)
+![Green Paradise Logo](./Images/logo_green_heaven.png)
+
 
 ## Table of Contents
 
@@ -8,41 +9,34 @@
 2. [Demo](#demo)
 3. [Features](#features)
 4. [Screenshots](#screenshots)
-5. [Contributors](#contributors)
+5. [Contributors](#authors)
 
 ## Description
 
-SAW Electronics is your go-to online store for all your electronic needs. We offer a vast selection of the latest gadgets, devices, and accessories, providing tech enthusiasts with a paradise of choices. Our platform is designed with user convenience in mind, ensuring a seamless shopping experience for customers looking to upgrade their tech game. Built using cutting-edge technologies such as HTML, CSS, and JavaScript, SAW Electronics is your ultimate destination for high-quality electronics.
+Green Paradise is a fully functional e-commerce website designed for plant enthusiasts. It offers a wide variety of plants and gardening supplies, making it easy for users to browse, select, and purchase their favorite plants online. This project is built using HTML, CSS, and JavaScript to create an engaging and user-friendly online shopping experience for plant lovers.
 
 ## Demo
 
-- [Live Demo](https://green-paradise-electronics.netlify.app)
-
+- [Live Demo](https://green-paradise-team.netlify.app)
 ## Features
 
-- **Extensive Product Range:** Explore a diverse range of electronics, from smartphones and laptops to smart home devices and accessories.
-- **Detailed Product Information:** Access comprehensive product descriptions, specifications, and customer reviews to make informed purchase decisions.
-- **Easy Navigation:** Intuitive search and navigation features help you find products quickly and effortlessly.
-- **Secure Shopping:** Shop with confidence using our secure checkout process and multiple payment options.
-- **Personalized User Accounts:** Create an account to track your orders, save favorite items, and receive personalized recommendations.
-- **Responsive Design:** Enjoy a seamless shopping experience on both desktop and mobile devices with our responsive design.
+- Browse and search for a wide range of plants.
+- View detailed plant descriptions, including care instructions.
+- Search Products right from the Navbar
+- Add plants to the shopping cart.
+- Calculate and display the total order price.
+- Complete the purchase with secure checkout.
+- User account creation and login.
+- Responsive design for mobile and desktop users.
 
 ## Screenshots
-
-Check out our user-friendly interface on various devices:
-
-- ![Desktop](./Images/Home-Page_Desktop.png)
-- ![Laptop](./Images/Home-Page_Laptop.png)
-- ![Tablet](./Images/Home-Page_Tablet.png)
-- ![Mobile](./Images/Home-Page_Mobile.png)
-
+  Screenshots of the Home page on different devices are given below.
+- [Desktop](./Images/Home-Page_Desktop.png)
+- [Laptop](./Images/Home-Page_Laptop.png)
+- [Tablet](./Images/Home-Page_Tablet.png)
+- [Mobile](./Images/Home-Page_Mobile.png)
 ## Contributors
-
-Meet the team behind SAW Electronics:
-
-
-- **Dipanshu Singh**
-  - [LinkedIn](https://www.linkedin.com/in/dipanshu-singh-645821153)
-  - [GitHub](https://github.com/Dipanshu-Singh-Dev/)
-
-Thank you for choosing SAW Electronics. Enjoy your tech shopping experience!
+- Ashutosh Verma : [LinkedIn](https://www.linkedin.com/in/ashutosh-verma-6420b4272/) [Github](https://github.com/1ashutoshverma/)
+- Dipanshu Singh : [LinkedIn](https://www.linkedin.com/in/dipanshu-singh-645821153) [Github](https://github.com/Dipanshu-Singh-Dev)
+- Kumod Kumar Sharma : [LinkedIn](https://www.linkedin.com/in/kumod-kumar-sharma-18356521a) [Github](https://github.com/kumod1164)
+- Madhu Sudhan : [LinkedIn](https://www.linkedin.com/in/madhu-sudhan-794a91283/) [Github](https://github.com/MadhuSudhanAlukuntla)
